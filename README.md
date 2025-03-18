@@ -48,3 +48,6 @@ Useful Helm Client Commands:
   ```shell
   helm upgrade ingress-nginx ay-helm-mirror/k8s/ingress-nginx
   ```
+### Update mirror
+1. upload `xxx.tgz` file to `charts` dir
+2. run `helm repo index charts`

@@ -1,0 +1,52 @@
+apiVersion: v1
+entries:
+  ingress-nginx:
+  - annotations:
+      artifacthub.io/changes: |
+        - Update Ingress-Nginx version controller-v1.11.3
+      artifacthub.io/prerelease: "false"
+    apiVersion: v2
+    appVersion: 1.11.3
+    created: "2025-03-18T16:39:37.54897643+08:00"
+    description: Ingress controller for Kubernetes using NGINX as a reverse proxy
+      and load balancer
+    digest: a9f371489a6c18042508c0b5c2ea669deaad7ccc08f37efc4522e336edda1c20
+    home: https://github.com/kubernetes/ingress-nginx
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png
+    keywords:
+    - ingress
+    - nginx
+    kubeVersion: '>=1.21.0-0'
+    maintainers:
+    - name: cpanato
+    - name: Gacko
+    - name: puerco
+    - name: rikatz
+    - name: strongjz
+    - name: tao12345666333
+    name: ingress-nginx
+    sources:
+    - https://github.com/kubernetes/ingress-nginx
+    urls:
+    - k8s/ingress-nginx-4.11.3.tgz
+    version: 4.11.3
+  ska-src-dm-da-service-gatekeeper:
+  - apiVersion: v2
+    appVersion: 0.1.8
+    created: "2025-03-18T16:39:37.545284771+08:00"
+    dependencies:
+    - name: ingress-nginx
+      repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
+      version: 4.11.3
+    description: A chart for the deployment of the SRCNet Service Gatekeeper (a modified
+      version of ingress-nginx).
+    digest: 8726a3e991a39b0efc60c0976fcaec007c6faef05e72be94ebc9e47c5e3c1dd0
+    home: https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper
+    name: ska-src-dm-da-service-gatekeeper
+    sources:
+    - https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper
+    type: application
+    urls:
+    - cnsrc/ska-src-dm-da-service-gatekeeper-0.2.0.tgz
+    version: 0.2.0
+generated: "2025-03-18T16:39:37.540003091+08:00"
