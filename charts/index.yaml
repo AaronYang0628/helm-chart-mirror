@@ -1,5 +1,33 @@
 apiVersion: v1
 entries:
+  common:
+  - annotations:
+      category: Infrastructure
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 2.22.0
+    created: "2025-03-24T14:58:40.942497438+08:00"
+    description: A Library Helm Chart for grouping common logic between bitnami charts.
+      This chart is not deployable by itself.
+    digest: f08ada920444add76d87a23c588089bfa1a59dd9cf516abe47bbc8aa0da9aee4
+    home: https://bitnami.com
+    icon: https://bitnami.com/downloads/logos/bitnami-mark.png
+    keywords:
+    - common
+    - helper
+    - template
+    - function
+    - bitnami
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: common
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/common
+    type: library
+    urls:
+    - k8s/common-2.22.0.tgz
+    version: 2.22.0
   ingress-nginx:
   - annotations:
       artifacthub.io/changes: |
@@ -7,7 +35,7 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.11.3
-    created: "2025-03-18T16:39:37.54897643+08:00"
+    created: "2025-03-24T14:58:40.957146452+08:00"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
     digest: a9f371489a6c18042508c0b5c2ea669deaad7ccc08f37efc4522e336edda1c20
@@ -30,10 +58,51 @@ entries:
     urls:
     - k8s/ingress-nginx-4.11.3.tgz
     version: 4.11.3
+  mariadb:
+  - annotations:
+      category: Database
+      images: |
+        - name: mariadb
+          image: docker.io/bitnami/mariadb:11.4.3-debian-12-r0
+        - name: mysqld-exporter
+          image: docker.io/bitnami/mysqld-exporter:0.15.1-debian-12-r30
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r27
+      licenses: Apache-2.0
+    apiVersion: v2
+    appVersion: 11.4.3
+    created: "2025-03-24T14:58:40.961603188+08:00"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: MariaDB is an open source, community-developed SQL database server
+      that is widely in use around the world due to its enterprise features, flexibility,
+      and collaboration with leading tech firms.
+    digest: ed780b0bcd454aabbbbaed5974e735b918757e649112175bd63c9ee015217a90
+    home: https://bitnami.com
+    icon: https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png
+    keywords:
+    - mariadb
+    - mysql
+    - database
+    - sql
+    - prometheus
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: mariadb
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/mariadb
+    urls:
+    - k8s/mariadb-19.0.6.tgz
+    version: 19.0.6
   ska-src-dm-da-service-gatekeeper:
   - apiVersion: v2
     appVersion: 0.1.8
-    created: "2025-03-18T16:39:37.545284771+08:00"
+    created: "2025-03-24T14:58:40.941850732+08:00"
     dependencies:
     - name: ingress-nginx
       repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
@@ -49,4 +118,35 @@ entries:
     urls:
     - cnsrc/ska-src-dm-da-service-gatekeeper-0.2.0.tgz
     version: 0.2.0
-generated: "2025-03-18T16:39:37.540003091+08:00"
+  slurm:
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 24.05.3
+    created: "2025-03-24T14:58:40.968475794+08:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.22.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.0.6
+    description: A Helm chart for Slurm Cluster
+    digest: efdc4db3b1cce46abf1a84677d75397633cd4b43a02a76196b50500ebd795593
+    home: https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png
+    keywords:
+    - slurm
+    - hpc
+    - k8s
+    maintainers:
+    - name: Aaron Yang
+      url: https://github.com/AaronYang0628
+    name: slurm
+    sources:
+    - https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart
+    urls:
+    - slurm/slurm-1.0.4.tgz
+    version: 1.0.4
+generated: "2025-03-24T14:58:40.92058529+08:00"

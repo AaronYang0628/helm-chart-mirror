@@ -1,5 +1,3 @@
-# helm chart mirror
-
 Suffered from slow downloading helm chart, I build this repo to speed it up
 
 ## Before you begin
@@ -37,12 +35,11 @@ Useful Helm Client Commands:
   ```
 - Download a chart: 
   ```shell
-  helm pull --version 4.11.3 --repo https://aaronyang0628.github.io/helm-chart-mirror/charts/k8s ingress-nginx
+  helm pull --version 4.11.3 --repo https://aaronyang0628.github.io/helm-chart-mirror/charts ingress-nginx
   ```
 - Install a chart: 
   ```shell
-  helm repo add ay-helm-mirror https://aaronyang0628.github.io/helm-chart-mirror/charts
-  helm install ingress-nginx ay-helm-mirror/k8s/ingress-nginx --version 4.11.3
+  helm upgrade --install -f ./values.yaml ingress-nginx ay-helm-mirror/ingress-nginx --version=4.11.3
   ```
 - Upgrade your application: 
   ```shell
@@ -51,3 +48,4 @@ Useful Helm Client Commands:
 ### Update mirror
 1. upload `xxx.tgz` file to `charts` dir
 2. run `helm repo index charts`
+
