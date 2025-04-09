@@ -4,7 +4,7 @@ metadata:
   labels:
     app.kubernetes.io/name: operator
     app.kubernetes.io/managed-by: kustomize
-  name: slurmdeployment
+  name: slurmdeployment-example
 spec:
   chart:
     name: slurm
