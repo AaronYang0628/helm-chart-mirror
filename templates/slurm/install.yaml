@@ -909,6 +909,64 @@ rules:
   - get
   - patch
   - update
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  - secrets
+  - serviceaccounts
+  - persistentvolumeclaims
+  - services
+  - configmaps
+  verbs:
+  - create
+  - list
+  - get
+  - watch
+- apiGroups:
+  - networking.k8s.io
+  resources:
+  - networkpolicies
+  verbs:
+  - create
+  - list
+  - get
+  - watch
+- apiGroups:
+  - policy
+  resources:
+  - poddisruptionbudgets
+  verbs:
+  - get
+  - list
+  - create
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  - replicasets
+  verbs:
+  - get
+  - list
+  - create
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  - statefulsets
+  verbs:
+  - get
+  - list
+  - create
+- apiGroups:
+  - rbac.authorization.k8s.io
+  resources:
+  - roles
+  - rolebindings
+  verbs:
+  - get
+  - list
+  - create
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -1105,7 +1163,6 @@ spec:
         command:
         - /manager
         image: aaron666/slurm-operator:latest
-        imagePullPolicy: Always
         livenessProbe:
           httpGet:
             path: /healthz
