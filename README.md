@@ -18,11 +18,14 @@ Useful Helm Client Commands:
   ```shell
   helm repo add ay-helm-mirror https://aaronyang0628.github.io/helm-chart-mirror/charts
   helm repo update
-  helm search repo nginx
+
+  # helm search repo ay-helm-mirror
+  # helm search repo nginx
   ```
 - Download a chart: 
   ```shell
   helm pull --version 4.11.3 --repo https://aaronyang0628.github.io/helm-chart-mirror/charts ingress-nginx
+  
   # you might wanna unzip chart file
   # tar -xvf ingress-nginx-4.11.3.tgz
   ```
