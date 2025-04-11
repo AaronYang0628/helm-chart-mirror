@@ -36,13 +36,13 @@ Useful Helm Client Commands:
 
 ### Available Charts
 - Argo
-  - **argo-cd** version: [5.46.7](), [7.8.14]()
+  - **argo-cd** version: `5.46.7`, `7.8.14`
 - CnSRC
-  - **gatekeeper** version: [0.2.0]()
+  - **gatekeeper** version: `0.2.0`
 - K8s
   - bitnami
-    - **common** version: [2.22.0]()
-    - **mariadb** version: [19.0.6]()
-  - **ingress-nginx** version: [4.11.3]()
+    - **common** version: `2.22.0`
+    - **mariadb** version: `19.0.6`
+  - **ingress-nginx** version: `4.11.3`
 - Slurm
-  - **slurm** version: [1.0.4]()
+  - **slurm** version: `1.0.4`
