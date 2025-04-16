@@ -45,4 +45,4 @@ Useful Helm Client Commands:
     - **mariadb** version: `19.0.6`
   - **ingress-nginx** version: `4.11.3`
 - Slurm
-  - **slurm** version: `1.0.4`
+  - **slurm** version: `1.0.4`,`1.0.5`
