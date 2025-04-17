@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.14.8
-    created: "2025-04-16T17:00:43.946248559+08:00"
+    created: "2025-04-17T11:21:17.038990133+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -45,7 +45,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.8.4
-    created: "2025-04-16T17:00:43.927691461+08:00"
+    created: "2025-04-17T11:21:17.023418285+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -77,7 +77,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.22.0
-    created: "2025-04-16T17:00:43.963027628+08:00"
+    created: "2025-04-17T11:21:17.047689019+08:00"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: f08ada920444add76d87a23c588089bfa1a59dd9cf516abe47bbc8aa0da9aee4
@@ -106,7 +106,7 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.11.3
-    created: "2025-04-16T17:00:43.976635898+08:00"
+    created: "2025-04-17T11:21:17.052827481+08:00"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
     digest: a9f371489a6c18042508c0b5c2ea669deaad7ccc08f37efc4522e336edda1c20
@@ -142,7 +142,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 11.4.3
-    created: "2025-04-16T17:00:43.980169038+08:00"
+    created: "2025-04-17T11:21:17.057632065+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -173,7 +173,7 @@ entries:
   ska-src-dm-da-service-gatekeeper:
   - apiVersion: v2
     appVersion: 0.1.8
-    created: "2025-04-16T17:00:43.962076829+08:00"
+    created: "2025-04-17T11:21:17.046193569+08:00"
     dependencies:
     - name: ingress-nginx
       repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
@@ -194,7 +194,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-04-16T17:00:43.993830436+08:00"
+    created: "2025-04-17T11:21:17.09096857+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -204,7 +204,37 @@ entries:
       repository: https://charts.bitnami.com/bitnami
       version: 19.0.6
     description: A Helm chart for Slurm Cluster
-    digest: 764cafba2e27662439d1d13193cab9aa715ca54a4633533bec7a12c6a69b0750
+    digest: c146cf13f24339462c9e02a448337abe53963f6a18234767b78f9d5dfbf017a3
+    home: https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart
+    icon: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png
+    keywords:
+    - slurm
+    - hpc
+    - k8s
+    maintainers:
+    - name: Aaron Yang
+      url: https://github.com/AaronYang0628
+    name: slurm
+    sources:
+    - https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart
+    urls:
+    - slurm/slurm-1.0.6.tgz
+    version: 1.0.6
+  - annotations:
+      category: Infrastructure
+    apiVersion: v2
+    appVersion: 24.05.3
+    created: "2025-04-17T11:21:17.080710813+08:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.22.0
+    - condition: mariadb.enabled
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 19.0.6
+    description: A Helm chart for Slurm Cluster
+    digest: 1efac6f2a0cdfa4a27026cfe68434eba4b93bbbe17304b6672149c466e743e2d
     home: https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart
     icon: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png
     keywords:
@@ -224,7 +254,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-04-16T17:00:43.987987396+08:00"
+    created: "2025-04-17T11:21:17.071094444+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -250,4 +280,4 @@ entries:
     urls:
     - slurm/slurm-1.0.4.tgz
     version: 1.0.4
-generated: "2025-04-16T17:00:43.899783569+08:00"
+generated: "2025-04-17T11:21:17.01044775+08:00"
