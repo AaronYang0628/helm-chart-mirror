@@ -10,8 +10,11 @@
 - name: cert-manager
   version: 1.13.3
   repo: https://charts.jetstack.io
-- name: nginx
-  version: 15.9.0
+- name: elasticsearch
+  version: 22.0.2
+  repo: https://charts.bitnami.com/bitnami
+- name: kafka
+  version: 32.2.3
   repo: https://charts.bitnami.com/bitnami
 - name: minio
   version: 5.0.15
