@@ -37,12 +37,43 @@ Useful Helm Client Commands:
 ### Available Charts
 - Argo
   - **argo-cd** version: `5.46.7`, `7.8.14`
+  
+  ```shell
+  helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/argo/argo.cd.values.yaml argo-cd ay-helm-mirror/argo-cd --version=X.XX.X
+  ```
+  - **argo-workflows** version: 
 - CnSRC
   - **gatekeeper** version: `0.2.0`
+  
+  ```shell
+  helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/argo/argo.cd.values.yaml argo-cd ay-helm-mirror/argo-cd --version=X.XX.X
+  ```
+- Data-And-Computing
+  - **data-warehouse** version: `0.0.5`
+
+  ```shell
+  helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/data-and-computing/data-warehouse.values.yaml argo-cd ay-helm-mirror/data-warehouse --version=0.0.5
+  ```
+- Flink
+  - **flink-k8s-operator** version: `1.11.0`
+  
+  ```shell
+    helm upgrade --install argo-cd ay-helm-mirror/flink-kubernetes-operator --version=0.11.0
+  ```
 - K8s
-  - bitnami
-    - **common** version: `2.22.0`
-    - **mariadb** version: `19.0.6`
+  - **common** version: `2.22.0`
+  - **mariadb** version: `19.0.6`
   - **ingress-nginx** version: `4.11.3`
+  - **elasticsearch** version: `22.0.2`
+  - **kibana** version: `22.0.2`
+  - **kafka** version: `32.2.3`
+
+  ```shell
+  helm upgrade --install kafka ay-helm-mirror/kafka --version=X.XX.X
+  ```
 - Slurm
   - **slurm** version: `1.0.4`,`1.0.5`,`1.0.6`
+  
+  ```shell
+  helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/slurm/slurm.values.yaml argo-cd ay-helm-mirror/slurm --version=1.0.6
+  ```
