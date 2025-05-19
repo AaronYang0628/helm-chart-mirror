@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.14.8
-    created: "2025-04-17T14:50:30.753998383+08:00"
+    created: "2025-05-19T10:47:36.3214683+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -45,7 +45,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.8.4
-    created: "2025-04-17T14:50:30.681927608+08:00"
+    created: "2025-05-19T10:47:36.2975697+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -77,7 +77,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.22.0
-    created: "2025-04-17T14:50:30.772268557+08:00"
+    created: "2025-05-19T10:47:36.7798387+08:00"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: f08ada920444add76d87a23c588089bfa1a59dd9cf516abe47bbc8aa0da9aee4
@@ -99,6 +99,60 @@ entries:
     urls:
     - k8s/common-2.22.0.tgz
     version: 2.22.0
+  elasticsearch:
+  - annotations:
+      category: Analytics
+      images: |
+        - name: elasticsearch
+          image: docker.io/bitnami/elasticsearch:9.0.0-debian-12-r2
+        - name: elasticsearch-exporter
+          image: docker.io/bitnami/elasticsearch-exporter:1.9.0-debian-12-r6
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r43
+      licenses: Apache-2.0
+      tanzuCategory: service
+    apiVersion: v2
+    appVersion: 9.0.0
+    created: "2025-05-19T10:47:36.5704427+08:00"
+    dependencies:
+    - condition: global.kibanaEnabled
+      name: kibana
+      repository: oci://registry-1.docker.io/bitnamicharts
+      version: 12.x.x
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Elasticsearch is a distributed search and analytics engine. It is
+      used for web search, log monitoring, and real-time analytics. Ideal for Big
+      Data applications.
+    digest: a9625217097608a527edd7a364a47ee38debcf00a162b03309215fada9f15b13
+    home: https://bitnami.com
+    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/elasticsearch/img/elasticsearch-stack-220x234.png
+    keywords:
+    - elasticsearch
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: elasticsearch
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/elasticsearch
+    urls:
+    - bitnami/elasticsearch-22.0.2.tgz
+    version: 22.0.2
+  flink-kubernetes-operator:
+  - apiVersion: v2
+    appVersion: 1.11.0
+    created: "2025-05-19T10:47:36.7642796+08:00"
+    description: A Helm chart for the Apache Flink Kubernetes Operator
+    digest: d134ef3856e856f1a573631c10f919fcf24b2bc765c8852cb67862d344e00506
+    icon: https://flink.apache.org/img/logo/png/50/color_50.png
+    name: flink-kubernetes-operator
+    type: application
+    urls:
+    - flink/flink-kubernetes-operator-1.11.0-helm.tgz
+    version: 1.11.0
   ingress-nginx:
   - annotations:
       artifacthub.io/changes: |
@@ -106,7 +160,7 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.11.3
-    created: "2025-04-17T14:50:30.804170299+08:00"
+    created: "2025-05-19T10:47:36.7979939+08:00"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
     digest: a9f371489a6c18042508c0b5c2ea669deaad7ccc08f37efc4522e336edda1c20
@@ -129,6 +183,49 @@ entries:
     urls:
     - k8s/ingress-nginx-4.11.3.tgz
     version: 4.11.3
+  kafka:
+  - annotations:
+      category: Infrastructure
+      images: |
+        - name: jmx-exporter
+          image: docker.io/bitnami/jmx-exporter:1.2.0-debian-12-r4
+        - name: kafka
+          image: docker.io/bitnami/kafka:4.0.0-debian-12-r3
+        - name: kubectl
+          image: docker.io/bitnami/kubectl:1.33.0-debian-12-r0
+        - name: os-shell
+          image: docker.io/bitnami/os-shell:12-debian-12-r43
+      licenses: Apache-2.0
+      tanzuCategory: service
+    apiVersion: v2
+    appVersion: 4.0.0
+    created: "2025-05-19T10:47:36.6253599+08:00"
+    dependencies:
+    - name: common
+      repository: oci://registry-1.docker.io/bitnamicharts
+      tags:
+      - bitnami-common
+      version: 2.x.x
+    description: Apache Kafka is a distributed streaming platform designed to build
+      real-time pipelines and can be used as a message broker or as a replacement
+      for a log aggregation solution for big data applications.
+    digest: cee088cf559311a278dca4c1650b45a051d1df5c2e6c9bec312947562c6fa4c8
+    home: https://bitnami.com
+    icon: https://dyltqmyl993wv.cloudfront.net/assets/stacks/kafka/img/kafka-stack-220x234.png
+    keywords:
+    - kafka
+    - streaming
+    - producer
+    - consumer
+    maintainers:
+    - name: Broadcom, Inc. All Rights Reserved.
+      url: https://github.com/bitnami/charts
+    name: kafka
+    sources:
+    - https://github.com/bitnami/charts/tree/main/bitnami/kafka
+    urls:
+    - bitnami/kafka-32.2.3.tgz
+    version: 32.2.3
   mariadb:
   - annotations:
       category: Database
@@ -142,7 +239,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 11.4.3
-    created: "2025-04-17T14:50:30.811426121+08:00"
+    created: "2025-05-19T10:47:36.8109958+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -170,10 +267,40 @@ entries:
     urls:
     - k8s/mariadb-19.0.6.tgz
     version: 19.0.6
+  metadata-environment:
+  - apiVersion: v2
+    appVersion: 0.0.1
+    created: "2025-05-19T10:47:36.7067766+08:00"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.22.0
+    - condition: elasticsearch.enabled
+      name: elasticsearch
+      repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
+      version: 22.0.2
+    - condition: kafka.enabled
+      name: kafka
+      repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
+      version: 32.2.3
+    - condition: flink.enabled
+      name: flink-kubernetes-operator
+      repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
+      version: 1.11.0
+    description: A Helm chart for Kubernetes
+    digest: 499e070cfa14df5a31b0456a11f85799c69f4d69596016f1a3b30ee1cd44289c
+    keywords:
+    - metadata
+    - flink
+    name: metadata-environment
+    type: application
+    urls:
+    - data-and-computing/metadata-environment-0.0.5.tgz
+    version: 0.0.5
   ska-src-dm-da-service-gatekeeper:
   - apiVersion: v2
     appVersion: 0.1.8
-    created: "2025-04-17T14:50:30.770765761+08:00"
+    created: "2025-05-19T10:47:36.6911616+08:00"
     dependencies:
     - name: ingress-nginx
       repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
@@ -194,7 +321,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-04-17T14:50:30.932866937+08:00"
+    created: "2025-05-19T10:47:36.8586753+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -224,7 +351,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-04-17T14:50:30.884798981+08:00"
+    created: "2025-05-19T10:47:36.8472737+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -254,7 +381,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-04-17T14:50:30.87062448+08:00"
+    created: "2025-05-19T10:47:36.8312241+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -280,4 +407,4 @@ entries:
     urls:
     - slurm/slurm-1.0.4.tgz
     version: 1.0.4
-generated: "2025-04-17T14:50:30.606784536+08:00"
+generated: "2025-05-19T10:47:36.1259778+08:00"
