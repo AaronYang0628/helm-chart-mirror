@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.14.8
-    created: "2025-05-19T11:24:16.4252492+08:00"
+    created: "2025-05-26T10:05:33.6521209+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -45,7 +45,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.8.4
-    created: "2025-05-19T11:24:16.4145006+08:00"
+    created: "2025-05-26T10:05:33.0129854+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -77,7 +77,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.22.0
-    created: "2025-05-19T11:24:16.4606003+08:00"
+    created: "2025-05-26T10:05:33.6771784+08:00"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: f08ada920444add76d87a23c588089bfa1a59dd9cf516abe47bbc8aa0da9aee4
@@ -97,12 +97,12 @@ entries:
     - https://github.com/bitnami/charts/tree/main/bitnami/common
     type: library
     urls:
-    - k8s/common-2.22.0.tgz
+    - bitnami/common-2.22.0.tgz
     version: 2.22.0
   data-warehouse:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2025-05-19T11:24:16.4580389+08:00"
+    created: "2025-05-26T10:05:33.9989538+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -143,7 +143,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.0.0
-    created: "2025-05-19T11:24:16.4329377+08:00"
+    created: "2025-05-26T10:05:33.8900254+08:00"
     dependencies:
     - condition: global.kibanaEnabled
       name: kibana
@@ -174,7 +174,7 @@ entries:
   flink-kubernetes-operator:
   - apiVersion: v2
     appVersion: 1.11.0
-    created: "2025-05-19T11:24:16.4600894+08:00"
+    created: "2025-05-26T10:05:34.0173295+08:00"
     description: A Helm chart for the Apache Flink Kubernetes Operator
     digest: d134ef3856e856f1a573631c10f919fcf24b2bc765c8852cb67862d344e00506
     icon: https://flink.apache.org/img/logo/png/50/color_50.png
@@ -190,7 +190,7 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.11.3
-    created: "2025-05-19T11:24:16.4641924+08:00"
+    created: "2025-05-26T10:05:33.9109712+08:00"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
     digest: a9f371489a6c18042508c0b5c2ea669deaad7ccc08f37efc4522e336edda1c20
@@ -211,7 +211,7 @@ entries:
     sources:
     - https://github.com/kubernetes/ingress-nginx
     urls:
-    - k8s/ingress-nginx-4.11.3.tgz
+    - bitnami/ingress-nginx-4.11.3.tgz
     version: 4.11.3
   kafka:
   - annotations:
@@ -229,7 +229,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 4.0.0
-    created: "2025-05-19T11:24:16.4385876+08:00"
+    created: "2025-05-26T10:05:33.9340039+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -269,7 +269,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 11.4.3
-    created: "2025-05-19T11:24:16.4677949+08:00"
+    created: "2025-05-26T10:05:33.9488183+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -295,12 +295,12 @@ entries:
     sources:
     - https://github.com/bitnami/charts/tree/main/bitnami/mariadb
     urls:
-    - k8s/mariadb-19.0.6.tgz
+    - bitnami/mariadb-19.0.6.tgz
     version: 19.0.6
   ska-src-dm-da-service-gatekeeper:
   - apiVersion: v2
     appVersion: 0.1.8
-    created: "2025-05-19T11:24:16.4431838+08:00"
+    created: "2025-05-26T10:05:33.9656933+08:00"
     dependencies:
     - name: ingress-nginx
       repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
@@ -321,7 +321,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-05-19T11:24:16.4847403+08:00"
+    created: "2025-05-26T10:05:34.0817428+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -351,7 +351,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-05-19T11:24:16.479071+08:00"
+    created: "2025-05-26T10:05:34.0689764+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -381,7 +381,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-05-19T11:24:16.47394+08:00"
+    created: "2025-05-26T10:05:34.0439124+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -407,4 +407,4 @@ entries:
     urls:
     - slurm/slurm-1.0.4.tgz
     version: 1.0.4
-generated: "2025-05-19T11:24:16.4052791+08:00"
+generated: "2025-05-26T10:05:32.6205671+08:00"
