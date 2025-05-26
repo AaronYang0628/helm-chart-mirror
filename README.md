@@ -67,7 +67,8 @@ Useful Helm Client Commands:
   - **elasticsearch** version: `22.0.2`
   - **kibana** version: `22.0.2`
   - **kafka** version: `32.2.3`
-
+  - **cert-manager** version: `1.17.2`
+  
   ```shell
   helm upgrade --install kafka ay-helm-mirror/kafka --version=X.XX.X
   ```
