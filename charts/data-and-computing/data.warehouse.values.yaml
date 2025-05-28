@@ -8,6 +8,7 @@ global:
 resourcesPreset: "nano"
 
 ingestTaskOperator:
+  enabled: true
   name: ingest-operator
   installCRDs: true
   commonLabels: {}
@@ -15,7 +16,7 @@ ingestTaskOperator:
   image:
     registry: docker-registry.lab.zverse.space
     repository: ay-dev/metadata-operator
-    tag: fix
+    tag: latest
     pullPolicy: Always
     pullSecrets: []
   serviceAccount:
@@ -26,14 +27,7 @@ ingestTaskOperator:
       name: "metadata-ingest-operator"
     roleBinding:
       name: "metadata-ingest-operator"
-  kubeConfig:
-    cluster:
-      server: https://192.168.58.2:8443
-      certData: xxx==
-    user:
-      key: xxx=
-      certData: xxx==
-  automountServiceAccountToken: false
+  automountServiceAccountToken: true
   podLabels: {}
   affinity: {}
   podAnnotations: {}
@@ -237,6 +231,3 @@ kafka:
     enabled: true
   zookeeper:
     enabled: false
-
-
-

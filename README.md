@@ -68,6 +68,7 @@ Useful Helm Client Commands:
   - **kibana** version: `22.0.2`
   - **kafka** version: `32.2.3`
   - **cert-manager** version: `1.17.2`
+  - **minio** version: `16.0.10`
   
   ```shell
   helm upgrade --install kafka ay-helm-mirror/kafka --version=X.XX.X
