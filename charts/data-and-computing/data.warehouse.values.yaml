@@ -10,7 +10,6 @@ resourcesPreset: "nano"
 ingestTaskOperator:
   enabled: true
   name: ingest-operator
-  installCRDs: true
   commonLabels: {}
   commonAnnotations: {}
   image:
@@ -20,13 +19,23 @@ ingestTaskOperator:
     pullPolicy: Always
     pullSecrets: []
   serviceAccount:
-    automount: true
     annotations: {}
-    name: "metadata-ingest-operator"
+    name: "metadata-ingest-operator-sa"
     role:
-      name: "metadata-ingest-operator"
+      name: "metadata-ingest-operator-role"
     roleBinding:
-      name: "metadata-ingest-operator"
+      name: "metadata-ingest-operator-rb"
+    clusterRole:
+      name: "metadata-ingest-operator-crole"
+    clusterRoleBinding:
+      name: "metadata-ingest-operator-crb"
+  flink:
+    serviceAccount:
+      name: "metadata-ingest-flink-sa"
+    clusterRole:
+      name: "metadata-ingest-flink-crole"
+    clusterRoleBinding:
+      name: "metadata-ingest-flink-crole-crb"
   automountServiceAccountToken: true
   podLabels: {}
   affinity: {}
@@ -108,10 +117,11 @@ ingestTaskOperator:
 
 
 flink:
-  enabled: true
+  enabled: false
+  existingNamespace: "flink"
 
 elasticsearch:
-  enabled: true
+  enabled: false
   global:
     kibanaEnabled: true
   clusterName: elastic
@@ -181,7 +191,7 @@ elasticsearch:
 
 
 kafka:
-  enabled: true
+  enabled: false
   image:
     registry: m.lab.zverse.space/docker.io
   controller:
