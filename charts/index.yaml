@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.14.8
-    created: "2025-06-03T13:50:36.9928573+08:00"
+    created: "2025-06-12T10:54:48.0111932+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -45,7 +45,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.8.4
-    created: "2025-06-03T13:50:36.9625534+08:00"
+    created: "2025-06-12T10:54:47.9861252+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -81,7 +81,7 @@ entries:
         url: https://cert-manager.io/public-keys/cert-manager-keyring-2021-09-20-1020CF3C033D4F35BAE1C19E1226061C665DF13E.gpg
     apiVersion: v2
     appVersion: v1.17.2
-    created: "2025-06-03T13:50:37.1475588+08:00"
+    created: "2025-06-12T10:54:48.3453049+08:00"
     description: A Helm chart for cert-manager
     digest: 9f8eaada785a870112c7b1874952b7e8776fd066608361c83ecee859314393ad
     home: https://cert-manager.io
@@ -108,7 +108,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.22.0
-    created: "2025-06-03T13:50:37.0010669+08:00"
+    created: "2025-06-12T10:54:48.0832434+08:00"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: f08ada920444add76d87a23c588089bfa1a59dd9cf516abe47bbc8aa0da9aee4
@@ -133,7 +133,7 @@ entries:
   data-warehouse:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2025-06-03T13:50:37.1206635+08:00"
+    created: "2025-06-12T10:54:48.3194498+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -174,7 +174,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.0.0
-    created: "2025-06-03T13:50:37.0142895+08:00"
+    created: "2025-06-12T10:54:48.1711768+08:00"
     dependencies:
     - condition: global.kibanaEnabled
       name: kibana
@@ -205,7 +205,7 @@ entries:
   flink-kubernetes-operator:
   - apiVersion: v2
     appVersion: 1.11.0
-    created: "2025-06-03T13:50:37.1299607+08:00"
+    created: "2025-06-12T10:54:48.3319667+08:00"
     description: A Helm chart for the Apache Flink Kubernetes Operator
     digest: d134ef3856e856f1a573631c10f919fcf24b2bc765c8852cb67862d344e00506
     icon: https://flink.apache.org/img/logo/png/50/color_50.png
@@ -221,7 +221,7 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.11.3
-    created: "2025-06-03T13:50:37.0252993+08:00"
+    created: "2025-06-12T10:54:48.1850607+08:00"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
     digest: a9f371489a6c18042508c0b5c2ea669deaad7ccc08f37efc4522e336edda1c20
@@ -260,7 +260,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 4.0.0
-    created: "2025-06-03T13:50:37.0363093+08:00"
+    created: "2025-06-12T10:54:48.2063633+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -300,7 +300,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v0.82.2
-    created: "2025-06-03T13:50:37.064334+08:00"
+    created: "2025-06-12T10:54:48.2395682+08:00"
     dependencies:
     - condition: crds.enabled
       name: crds
@@ -380,7 +380,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 11.4.3
-    created: "2025-06-03T13:50:37.0753437+08:00"
+    created: "2025-06-12T10:54:48.2510108+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -422,7 +422,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 2025.4.22
-    created: "2025-06-03T13:50:37.0833509+08:00"
+    created: "2025-06-12T10:54:48.2674857+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -452,8 +452,26 @@ entries:
     version: 16.0.10
   ska-src-dm-da-service-gatekeeper:
   - apiVersion: v2
+    appVersion: 0.2.4
+    created: "2025-06-12T10:54:48.294954+08:00"
+    dependencies:
+    - name: ingress-nginx
+      repository: https://kubernetes.github.io/ingress-nginx
+      version: 4.11.5
+    description: A chart for the deployment of the SRCNet Service Gatekeeper (a modified
+      version of ingress-nginx).
+    digest: 82033e6fecc21b68acd26a2782dae5ef79fcd08af1d487185aa707750d47fba3
+    home: https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper
+    name: ska-src-dm-da-service-gatekeeper
+    sources:
+    - https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper
+    type: application
+    urls:
+    - cnsrc/ska-src-dm-da-service-gatekeeper-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v2
     appVersion: 0.1.8
-    created: "2025-06-03T13:50:37.0948167+08:00"
+    created: "2025-06-12T10:54:48.290898+08:00"
     dependencies:
     - name: ingress-nginx
       repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
@@ -474,7 +492,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-06-03T13:50:37.1844661+08:00"
+    created: "2025-06-12T10:54:48.4049735+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -504,7 +522,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-06-03T13:50:37.1730783+08:00"
+    created: "2025-06-12T10:54:48.3916062+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -534,7 +552,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-06-03T13:50:37.1605709+08:00"
+    created: "2025-06-12T10:54:48.3676771+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -560,4 +578,4 @@ entries:
     urls:
     - slurm/slurm-1.0.4.tgz
     version: 1.0.4
-generated: "2025-06-03T13:50:36.946119+08:00"
+generated: "2025-06-12T10:54:47.9359951+08:00"
