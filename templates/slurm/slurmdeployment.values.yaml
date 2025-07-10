@@ -37,7 +37,7 @@ spec:
       image:
         registry: ghcr.io
         repository: aaronyang0628/slurm-munged
-        tag: 25.05
+        tag: "25.05"
         pullPolicy: IfNotPresent
         pullSecrets: []
       extraVolumes: []
@@ -46,7 +46,7 @@ spec:
       image:
         registry: ghcr.io
         repository: aaronyang0628/slurm-slurmdbd
-        tag: 25.05
+        tag: "25.05"
         pullPolicy: IfNotPresent
         pullSecrets: []
       extraVolumes: []
@@ -55,7 +55,7 @@ spec:
       image:
         registry: ghcr.io
         repository: aaronyang0628/slurm-slurmctld
-        tag: 25.05
+        tag: "25.05"
         pullPolicy: IfNotPresent
         pullSecrets: []
       extraVolumes: []
