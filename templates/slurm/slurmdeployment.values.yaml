@@ -33,13 +33,11 @@ spec:
         name: slurm-shared-storage
         storageClass: ""
         size: 8Gi
-      mirror:
-        registry: m.lab.zverse.space
     munged:
       image:
         registry: ghcr.io
         repository: aaronyang0628/slurm-munged
-        tag: "intelmpi-250208-r0"
+        tag: 25.05
         pullPolicy: IfNotPresent
         pullSecrets: []
       extraVolumes: []
@@ -48,7 +46,7 @@ spec:
       image:
         registry: ghcr.io
         repository: aaronyang0628/slurm-slurmdbd
-        tag: intelmpi-250208-r0
+        tag: 25.05
         pullPolicy: IfNotPresent
         pullSecrets: []
       extraVolumes: []
@@ -57,7 +55,7 @@ spec:
       image:
         registry: ghcr.io
         repository: aaronyang0628/slurm-slurmctld
-        tag: intelmpi-250208-r0
+        tag: 25.05
         pullPolicy: IfNotPresent
         pullSecrets: []
       extraVolumes: []
@@ -66,7 +64,7 @@ spec:
       image:
         registry: ghcr.io
         repository: aaronyang0628/slurm-login
-        tag: intelmpi-250208-r0-lensing-v4
+        tag: 25.05-open-mpi
         pullPolicy: IfNotPresent
         pullSecrets: []
       resources: 
@@ -85,7 +83,7 @@ spec:
       image:
         registry: ghcr.io
         repository: aaronyang0628/slurm-slurmd
-        tag: openmpi-25.05
+        tag: 25.05-open-mpi
         pullPolicy: IfNotPresent
         pullSecrets: []
       resources: 
@@ -101,7 +99,7 @@ spec:
       image:
         registry: ghcr.io
         repository: aaronyang0628/slurm-slurmd
-        tag: intelmpi-250208-r0-lensing-v5.3
+        tag: 25.05-open-mpi
         pullPolicy: IfNotPresent
         pullSecrets: []
       resources: 
