@@ -21,7 +21,7 @@ spec:
     plural: slurmdeployments
     shortNames:
     - sd
-    - slurm
+    - slurmdep
     singular: slurmdeployment
   scope: Namespaced
   versions:
@@ -1013,7 +1013,6 @@ rules:
   - ""
   resources:
   - configmaps
-  - namespaces
   - persistentvolumeclaims
   - secrets
   - serviceaccounts
@@ -1025,6 +1024,18 @@ rules:
   - list
   - patch
   - update
+- apiGroups:
+  - ""
+  resources:
+  - namespaces
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
 - apiGroups:
   - apps
   resources:
@@ -1048,6 +1059,7 @@ rules:
   - list
   - patch
   - update
+  - watch
 - apiGroups:
   - networking.k8s.io
   resources:
