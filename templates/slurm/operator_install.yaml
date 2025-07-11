@@ -3,9 +3,9 @@ kind: Namespace
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
+    app.kubernetes.io/name: slurm-operator
     control-plane: controller-manager
-  name: operator-system
+  name: slurm
 ---
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
@@ -959,18 +959,18 @@ kind: ServiceAccount
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
-  name: operator-controller-manager
-  namespace: operator-system
+    app.kubernetes.io/name: slurm-operator
+  name: slurm-operator-controller-manager
+  namespace: slurm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
-  name: operator-leader-election-role
-  namespace: operator-system
+    app.kubernetes.io/name: slurm-operator
+  name: slurm-operator-leader-election-role
+  namespace: slurm
 rules:
 - apiGroups:
   - ""
@@ -1007,7 +1007,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: operator-manager-role
+  name: slurm-operator-manager-role
 rules:
 - apiGroups:
   - ""
@@ -1124,7 +1124,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: operator-metrics-auth-role
+  name: slurm-operator-metrics-auth-role
 rules:
 - apiGroups:
   - authentication.k8s.io
@@ -1142,7 +1142,7 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: operator-metrics-reader
+  name: slurm-operator-metrics-reader
 rules:
 - nonResourceURLs:
   - /metrics
@@ -1154,8 +1154,8 @@ kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
-  name: operator-slurmdeployment-admin-role
+    app.kubernetes.io/name: slurm-operator
+  name: slurm-operator-slurmdeployment-admin-role
 rules:
 - apiGroups:
   - slurm.ay.dev
@@ -1175,8 +1175,8 @@ kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
-  name: operator-slurmdeployment-editor-role
+    app.kubernetes.io/name: slurm-operator
+  name: slurm-operator-slurmdeployment-editor-role
 rules:
 - apiGroups:
   - slurm.ay.dev
@@ -1202,8 +1202,8 @@ kind: ClusterRole
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
-  name: operator-slurmdeployment-viewer-role
+    app.kubernetes.io/name: slurm-operator
+  name: slurm-operator-slurmdeployment-viewer-role
 rules:
 - apiGroups:
   - slurm.ay.dev
@@ -1225,56 +1225,56 @@ kind: RoleBinding
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
-  name: operator-leader-election-rolebinding
-  namespace: operator-system
+    app.kubernetes.io/name: slurm-operator
+  name: slurm-operator-leader-election-rolebinding
+  namespace: slurm
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: operator-leader-election-role
+  name: slurm-operator-leader-election-role
 subjects:
 - kind: ServiceAccount
-  name: operator-controller-manager
-  namespace: operator-system
+  name: slurm-operator-controller-manager
+  namespace: slurm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
-  name: operator-manager-rolebinding
+    app.kubernetes.io/name: slurm-operator
+  name: slurm-operator-manager-rolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: operator-manager-role
+  name: slurm-operator-manager-role
 subjects:
 - kind: ServiceAccount
-  name: operator-controller-manager
-  namespace: operator-system
+  name: slurm-operator-controller-manager
+  namespace: slurm
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: operator-metrics-auth-rolebinding
+  name: slurm-operator-metrics-auth-rolebinding
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: operator-metrics-auth-role
+  name: slurm-operator-metrics-auth-role
 subjects:
 - kind: ServiceAccount
-  name: operator-controller-manager
-  namespace: operator-system
+  name: slurm-operator-controller-manager
+  namespace: slurm
 ---
 apiVersion: v1
 kind: Service
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
+    app.kubernetes.io/name: slurm-operator
     control-plane: controller-manager
-  name: operator-controller-manager-metrics-service
-  namespace: operator-system
+  name: slurm-operator-controller-manager-metrics-service
+  namespace: slurm
 spec:
   ports:
   - name: https
@@ -1282,7 +1282,7 @@ spec:
     protocol: TCP
     targetPort: 8443
   selector:
-    app.kubernetes.io/name: operator
+    app.kubernetes.io/name: slurm-operator
     control-plane: controller-manager
 ---
 apiVersion: apps/v1
@@ -1290,22 +1290,22 @@ kind: Deployment
 metadata:
   labels:
     app.kubernetes.io/managed-by: kustomize
-    app.kubernetes.io/name: operator
+    app.kubernetes.io/name: slurm-operator
     control-plane: controller-manager
-  name: operator-controller-manager
-  namespace: operator-system
+  name: slurm-operator-controller-manager
+  namespace: slurm
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: operator
+      app.kubernetes.io/name: slurm-operator
       control-plane: controller-manager
   template:
     metadata:
       annotations:
         kubectl.kubernetes.io/default-container: manager
       labels:
-        app.kubernetes.io/name: operator
+        app.kubernetes.io/name: slurm-operator
         control-plane: controller-manager
     spec:
       containers:
@@ -1347,6 +1347,6 @@ spec:
         runAsNonRoot: true
         seccompProfile:
           type: RuntimeDefault
-      serviceAccountName: operator-controller-manager
+      serviceAccountName: slurm-operator-controller-manager
       terminationGracePeriodSeconds: 10
       volumes: []
