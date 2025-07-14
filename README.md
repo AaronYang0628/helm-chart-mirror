@@ -74,8 +74,8 @@ Useful Helm Client Commands:
   helm upgrade --install kafka ay-helm-mirror/kafka --version=X.XX.X
   ```
 - Slurm
-  - **slurm** version: `1.0.4`,`1.0.5`,`1.0.6`
+  - **slurm** version: `1.0.4`,`1.0.5`,`1.0.6`,`1.0.7`
   
   ```shell
-  helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/slurm/slurm.values.yaml argo-cd ay-helm-mirror/slurm --version=1.0.6
+  helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/slurm/slurm.values.yaml argo-cd ay-helm-mirror/slurm --version=1.0.7
   ```
