@@ -115,13 +115,31 @@ ingestTaskOperator:
       port: 8099
       targetPort: 8099
 
+certManager:
+  enabled: true
+  installCRDs: false
+  image:
+    repository: m.daocloud.io/quay.io/jetstack/cert-manager-controller
+  webhook:
+    image:
+      repository: m.daocloud.io/quay.io/jetstack/cert-manager-webhook
+  cainjector:
+    image:
+      repository: m.daocloud.io/quay.io/jetstack/cert-manager-cainjector
+  acmesolver:
+    image:
+      repository: m.daocloud.io/quay.io/jetstack/cert-manager-acmesolver
+  startupapicheck:
+    image:
+      repository: m.daocloud.io/quay.io/jetstack/cert-manager-startupapicheck
 
 flink:
-  enabled: false
-  existingNamespace: "flink"
+  enabled: true
+  image:
+    registry: m.daocloud.io/ghcr.io/apache/flink-kubernetes-operator
 
 elasticsearch:
-  enabled: false
+  enabled: true
   global:
     kibanaEnabled: true
   clusterName: elastic
@@ -191,7 +209,7 @@ elasticsearch:
 
 
 kafka:
-  enabled: false
+  enabled: true
   image:
     registry: m.lab.zverse.space/docker.io
   controller:
