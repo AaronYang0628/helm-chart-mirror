@@ -4,13 +4,16 @@ metadata:
   labels:
     app.kubernetes.io/name: slurm-operator
     app.kubernetes.io/managed-by: kustomize
-  name: slurm
+  name: lensing
 spec:
   chart:
     name: slurm
     repository: https://aaronyang0628.github.io/helm-chart-mirror/charts/slurm
-    version: 1.0.7
-    namespace: slurm
+    version: 1.0.9
+    namespace: test
+  job:
+    command: ["sh", "-c"]
+    args: ["srun -N 2 /bin/hostname"]
   values:
     mariadb:
       enabled: true
@@ -18,8 +21,6 @@ spec:
       primary:
         persistence:
           enabled: false
-          storageClass: ""
-          size: 8Gi
     auth:
       ssh:
         configmap:
@@ -38,75 +39,31 @@ spec:
         registry: docker-registry.lab.zverse.space
         repository: data-and-computing/slurm-munged
         tag: "25.05"
-        pullPolicy: IfNotPresent
-        pullSecrets: []
-      extraVolumes: []
-      extraVolumeMounts: []
     slurmdbd:
       image:
         registry: docker-registry.lab.zverse.space
         repository: data-and-computing/slurm-slurmdbd
         tag: "25.05"
-        pullPolicy: IfNotPresent
-        pullSecrets: []
-      extraVolumes: []
-      extraVolumeMounts: []
     slurmctld:
       image:
         registry: docker-registry.lab.zverse.space
         repository: data-and-computing/slurm-slurmctld
         tag: "25.05"
-        pullPolicy: IfNotPresent
-        pullSecrets: []
-      extraVolumes: []
-      extraVolumeMounts: []
     login:
       image:
         registry: docker-registry.lab.zverse.space
         repository: data-and-computing/slurm-login
         tag: 25.05-open-mpi
-        pullPolicy: IfNotPresent
-        pullSecrets: []
-      resources: 
-        limits:
-          cpu: 3000m
-          ephemeral-storage: 50Gi
-          memory: 8Gi
-        requests:
-          cpu: 500m
-          ephemeral-storage: 8Gi
-          memory: 1Gi
-      extraVolumes: []
-      extraVolumeMounts: []
     slurmdCPU:
       replicaCount: 1
       image:
         registry: docker-registry.lab.zverse.space
         repository: data-and-computing/slurm-slurmd
         tag: 25.05-open-mpi
-        pullPolicy: IfNotPresent
-        pullSecrets: []
       resources: 
         requests:
           core: 1
           cpu: 500m
           ephemeral-storage: 10Gi
           memory: 1Gi
-      extraVolumes: []
-      extraVolumeMounts: []
-    slurmdGPU:
-      replicaCount: 1
-      image:
-        registry: docker-registry.lab.zverse.space
-        repository: data-and-computing/slurm-slurmd
-        tag: 25.05-open-mpi
-        pullPolicy: IfNotPresent
-        pullSecrets: []
-      resources: 
-        requests:
-          core: 1
-          cpu: 500m
-          ephemeral-storage: 10Gi
-          memory: 1Gi
-      extraVolumes: []
-      extraVolumeMounts: []
+  

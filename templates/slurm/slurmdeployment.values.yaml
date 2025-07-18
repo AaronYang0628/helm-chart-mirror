@@ -4,12 +4,12 @@ metadata:
   labels:
     app.kubernetes.io/name: slurm-operator
     app.kubernetes.io/managed-by: kustomize
-  name: slurm
+  name: sample
 spec:
   chart:
     name: slurm
     repository: https://aaronyang0628.github.io/helm-chart-mirror/charts/slurm
-    version: 1.0.7
+    version: 1.0.9
     namespace: slurm
   values:
     mariadb:
@@ -33,10 +33,13 @@ spec:
         name: slurm-shared-storage
         storageClass: ""
         size: 8Gi
+    image:
+      mirror:
+        registry: m.lab.zverse.space
     munged:
       image:
-        registry: ghcr.io
-        repository: aaronyang0628/slurm-munged
+        registry: docker-registry.lab.zverse.space
+        repository: data-and-computing/slurm-munged
         tag: "25.05"
         pullPolicy: IfNotPresent
         pullSecrets: []
@@ -44,26 +47,38 @@ spec:
       extraVolumeMounts: []
     slurmdbd:
       image:
-        registry: ghcr.io
-        repository: aaronyang0628/slurm-slurmdbd
+        registry: docker-registry.lab.zverse.space
+        repository: data-and-computing/slurm-slurmdbd
         tag: "25.05"
         pullPolicy: IfNotPresent
         pullSecrets: []
+      nodeSelector: {}
+      nodeAffinityPreset:
+        type: ""
+        key: ""
+        values: []
+        weight: 0
       extraVolumes: []
       extraVolumeMounts: []
     slurmctld:
       image:
-        registry: ghcr.io
-        repository: aaronyang0628/slurm-slurmctld
+        registry: docker-registry.lab.zverse.space
+        repository: data-and-computing/slurm-slurmctld
         tag: "25.05"
         pullPolicy: IfNotPresent
         pullSecrets: []
+      nodeSelector: {}
+      nodeAffinityPreset:
+        type: ""
+        key: ""
+        values: []
+        weight: 0
       extraVolumes: []
       extraVolumeMounts: []
     login:
       image:
-        registry: ghcr.io
-        repository: aaronyang0628/slurm-login
+        registry: docker-registry.lab.zverse.space
+        repository: data-and-computing/slurm-login
         tag: 25.05-open-mpi
         pullPolicy: IfNotPresent
         pullSecrets: []
@@ -76,13 +91,19 @@ spec:
           cpu: 500m
           ephemeral-storage: 8Gi
           memory: 1Gi
+      nodeSelector: {}
+      nodeAffinityPreset:
+        type: ""
+        key: ""
+        values: []
+        weight: 0
       extraVolumes: []
       extraVolumeMounts: []
     slurmdCPU:
-      replicaCount: 1
+      replicaCount: 0
       image:
-        registry: ghcr.io
-        repository: aaronyang0628/slurm-slurmd
+        registry: docker-registry.lab.zverse.space
+        repository: data-and-computing/slurm-slurmd
         tag: 25.05-open-mpi
         pullPolicy: IfNotPresent
         pullSecrets: []
@@ -92,13 +113,19 @@ spec:
           cpu: 500m
           ephemeral-storage: 10Gi
           memory: 1Gi
+      nodeSelector: {}
+      nodeAffinityPreset:
+        type: ""
+        key: ""
+        values: []
+        weight: 0
       extraVolumes: []
       extraVolumeMounts: []
     slurmdGPU:
-      replicaCount: 1
+      replicaCount: 0
       image:
-        registry: ghcr.io
-        repository: aaronyang0628/slurm-slurmd
+        registry: docker-registry.lab.zverse.space
+        repository: data-and-computing/slurm-slurmd
         tag: 25.05-open-mpi
         pullPolicy: IfNotPresent
         pullSecrets: []
@@ -108,5 +135,13 @@ spec:
           cpu: 500m
           ephemeral-storage: 10Gi
           memory: 1Gi
+      nodeSelector: {}
+      nodeAffinityPreset:
+        type: ""
+        key: ""
+        values: []
+        weight: 0
       extraVolumes: []
       extraVolumeMounts: []
+
+  

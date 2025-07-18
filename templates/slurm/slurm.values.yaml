@@ -39,9 +39,9 @@ munged:
   name: munged
   commonLabels: {}
   image:
-    registry: docker.io
-    repository: aaron666/munged
-    tag: "latest"
+    registry: docker-registry.lab.zverse.space
+    repository: data-and-computing/slurm-munged
+    tag: "25.05"
     pullPolicy: IfNotPresent
     pullSecrets: []
   diagnosticMode:
@@ -53,9 +53,9 @@ slurmctld:
   name: slurmctld
   commonLabels: {}
   image:
-    registry: docker.io
-    repository: aaron666/slurm-slurmctld
-    tag: "latest"
+    registry: docker-registry.lab.zverse.space
+    repository: data-and-computing/slurm-slurmctld
+    tag: "25.05"
     pullPolicy: IfNotPresent
     pullSecrets: []
   replicaCount: 1
@@ -134,12 +134,12 @@ slurmctld:
 slurmdCPU:
   commonLabels: {}
   image:
-    registry: docker.io
-    repository: aaron666/slurm-slurmd
-    tag: "intel-mpi"
+    registry: docker-registry.lab.zverse.space
+    repository: data-and-computing/slurm-slurmd
+    tag: "25.05-open-mpi"
     pullPolicy: IfNotPresent
     pullSecrets: []
-  replicaCount: 1
+  replicaCount: 2
   automountServiceAccountToken: false
   podLabels: {}
   affinity: {}
@@ -219,12 +219,12 @@ slurmdCPU:
 slurmdGPU:
   commonLabels: {}
   image:
-    registry: docker.io
-    repository: aaron666/slurm-slurmd
-    tag: "intel-mpi"
+    registry: docker-registry.lab.zverse.space
+    repository: data-and-computing/slurm-slurmd
+    tag: "25.05-open-mpi"
     pullPolicy: IfNotPresent
     pullSecrets: []
-  replicaCount: 1
+  replicaCount: 0
   automountServiceAccountToken: false
   podLabels: {}
   affinity: {}
@@ -311,9 +311,9 @@ slurmdbd:
   name: slurmdbd
   commonLabels: {}
   image:
-    registry: docker.io
-    repository: aaron666/slurm-slurmdbd
-    tag: "latest"
+    registry: docker-registry.lab.zverse.space
+    repository: data-and-computing/slurm-slurmdbd
+    tag: "25.05"
     pullPolicy: IfNotPresent
     pullSecrets: []
   replicaCount: 1
@@ -393,9 +393,9 @@ login:
   name: login
   commonLabels: {}
   image:
-    registry: docker.io
-    repository: aaron666/slurm-login
-    tag: "intel-mpi"
+    registry: docker-registry.lab.zverse.space
+    repository: data-and-computing/slurm-login
+    tag: "25.05-open-mpi"
     pullPolicy: IfNotPresent
     pullSecrets: []
   replicaCount: 1
@@ -490,7 +490,7 @@ configuration:
       ConstrainSwapSpace=no
   slurmConf: |-
     ClusterName=slurm-cluster
-    SlurmctldHost={{ include "common.names.fullname" . }}-{{ .Values.slurmctld.name }}-0
+    SlurmctldHost={{ include "slurm.fullname" . }}-{{ .Values.slurmctld.name }}-0
     MpiDefault=pmi2
     ProctrackType=proctrack/cgroup
     ReturnToService=1
@@ -510,7 +510,7 @@ configuration:
     Waittime=0
     SchedulerType=sched/backfill
     SelectType=select/cons_tres
-    AccountingStorageHost={{ include "common.names.fullname" . }}-{{ .Values.slurmdbd.name }}-0
+    AccountingStorageHost={{ include "slurm.fullname" . }}-{{ .Values.slurmdbd.name }}-0
     AccountingStoragePort={{ .Values.slurmdbd.service.slurmdbd.port }}
     AccountingStorageType=accounting_storage/slurmdbd
     AccountingStoreFlags=job_comment
@@ -520,8 +520,8 @@ configuration:
     SlurmctldLogFile=/var/log/slurm/slurmctld.log
     SlurmdDebug=info
     SlurmdLogFile=/var/log/slurm/slurmd.log
-    NodeName={{ include "common.names.fullname" . }}-slurmd-cpu-[0-999] CPUs=8 CoresPerSocket=8 ThreadsPerCore=1 RealMemory=1024 Procs=1 State=UNKNOWN
-    NodeName={{ include "common.names.fullname" . }}-slurmd-gpu-[0-99] CPUs=8 CoresPerSocket=8 ThreadsPerCore=1 RealMemory=1024 Procs=1 State=UNKNOWN
+    NodeName={{ include "slurm.fullname" . }}-slurmd-cpu-[0-99] CPUs=1 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=2048 Procs=1 State=UNKNOWN
+    NodeName={{ include "slurm.fullname" . }}-slurmd-gpu-[0-99] CPUs=1 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=2048 Procs=1 State=UNKNOWN
     PartitionName=compute Nodes=ALL Default=YES MaxTime=INFINITE State=UP
   slurmdbdConf: |-
     AuthType=auth/munge
@@ -530,10 +530,10 @@ configuration:
     DebugLevel=verbose
     LogFile=/var/log/slurm/slurmdbd.log
     PidFile=/var/run/slurmdbd.pid
-    DbdHost={{ include "common.names.fullname" . }}-{{ .Values.slurmdbd.name }}-0
+    DbdHost={{ include "slurm.fullname" . }}-{{ .Values.slurmdbd.name }}-0
     DbdPort={{ .Values.slurmdbd.service.slurmdbd.port }}
     StorageType=accounting_storage/mysql
-    StorageHost={{ include "common.names.fullname" . }}-mariadb
+    StorageHost={{ .Release.Name }}-mariadb
     StoragePort={{ .Values.mariadb.port }}
     StoragePass={{ .Values.mariadb.auth.password }}
     StorageUser={{ .Values.mariadb.auth.username }}
