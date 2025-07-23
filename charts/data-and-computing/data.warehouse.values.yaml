@@ -137,9 +137,60 @@ flink:
   enabled: true
   image:
     registry: m.daocloud.io/ghcr.io/apache/flink-kubernetes-operator
+  existingNamespace: flink
+
+minio:
+  image:
+    registry: m.lab.zverse.space/docker.io
+  clientImage:
+    registry: m.lab.zverse.space/docker.io
+  auth:
+    existingSecret: metadata-minio-secret
+  defaultBuckets: "es-snapshot"
+  ingress:
+    enabled: true
+    ingressClassName: "nginx"
+    hostname: minio-console.metadata.dev
+    path: /?(.*)
+    pathType: ImplementationSpecific
+    annotations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+    tls: true
+    selfSigned: true
+    extraHosts: []
+  apiIngress:
+    enabled: true
+    ingressClassName: "nginx"
+    hostname: minio-api.metadata.dev
+    path: /?(.*)
+    pathType: ImplementationSpecific
+    annotations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+  persistence:
+    enabled: false
+    storageClass: ""
+    size: 2Gi
+  volumePermissions:
+    enabled: false
+    image:
+      registry: m.lab.zverse.space/docker.io
+  metrics:
+    prometheusAuthType: public
+    enabled: false
+    serviceMonitor:
+      enabled: false
+      namespace: "monitor"
+      labels:
+        release: kube-prometheus-stack
+      jobLabel: "metadata-minio"
+      interval: 30s
+    prometheusRule:
+      enabled: false
+      namespace: "monitor"
+      additionalLabels:
+        release: kube-prometheus-stack
 
 elasticsearch:
-  enabled: true
   global:
     kibanaEnabled: true
   clusterName: elastic
@@ -150,6 +201,28 @@ elasticsearch:
     enabled: false
   service:
     type: ClusterIP
+  extraConfig:
+    s3:
+      client:
+        default:
+          protocol: http
+          endpoint: 'http://minio-api.metadata.dev'
+          path_style_access: true
+  initScripts:
+    configure-s3-client.sh: |
+      elasticsearch_set_key_value "s3.client.default.access_key" "${S3_ACCESSKEY}"
+      elasticsearch_set_key_value "s3.client.default.secret_key" "${S3_SECRETKEY}"
+  extraEnvVars:
+  - name: S3_ACCESSKEY
+    valueFrom:
+      secretKeyRef:
+        key: s3-access-key
+        name: metadata-minio-secret
+  - name: S3_SECRETKEY
+    valueFrom:
+      secretKeyRef:
+        key: s3-access-secret
+        name: metadata-minio-secret
   ingress:
     enabled: true
     annotations:
@@ -158,12 +231,14 @@ elasticsearch:
     hostname: elastic-search.metadata.dev
     ingressClassName: nginx
     path: /?(.*)
-    tls: true
+    tls: false
   master:
     masterOnly: false
     replicaCount: 1
     persistence:
       enabled: false
+      storageClass: ""
+      size: 30Gi
     resources:
       requests:
         cpu: 1
@@ -179,13 +254,7 @@ elasticsearch:
   coordinating:
     replicaCount: 0
   ingest:
-    enabled: true
-    replicaCount: 0
-    service:
-      enabled: false
-      type: ClusterIP
-    ingress:
-      enabled: false
+    enabled: false
   metrics:
     enabled: false
     image:
@@ -205,19 +274,43 @@ elasticsearch:
       hosts:
         - '{{ include "elasticsearch.service.name" . }}'
       port: '{{ include "elasticsearch.service.ports.restAPI" . }}'
-  esJavaOpts: "-Xmx2g -Xms2g"
-
+    image:
+      registry: m.lab.zverse.space/docker.io
+      pullPolicy: IfNotPresent
+    persistence:
+      enabled: false
+    ingress:
+      enabled: true
+      annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /$1
+      hostname: kibana.metadata.dev
+      ingressClassName: nginx
+      path: /?(.*)
+      tls: false
 
 kafka:
-  enabled: true
   image:
     registry: m.lab.zverse.space/docker.io
+  listeners:
+    client:
+      protocol: PLAINTEXT
+    interbroker:
+      protocol: PLAINTEXT
   controller:
     replicaCount: 1
     persistence:
       enabled: false
+      storageClass: ""
+      size: 20Gi
     logPersistence:
       enabled: false
+    livenessProbe:
+      failureThreshold: 8
+    heapOpts: -Xmx3500m -Xms512m
+    resources:
+      requests:
+        cpu: 500m
+        memory: 1Gi
     extraConfig: |
       message.max.bytes=5242880
       default.replication.factor=1
@@ -225,10 +318,20 @@ kafka:
       transaction.state.log.replication.factor=1
   broker:
     replicaCount: 0
+    minId: 100
     persistence:
       enabled: false
+      storageClass: ""
+      size: 20Gi
     logPersistence:
       enabled: false
+    livenessProbe:
+      failureThreshold: 8
+    heapOpts: -Xmx3500m -Xms512m
+    resources:
+      requests:
+        cpu: 500m
+        memory: 1Gi
     extraConfig: |
       message.max.bytes=5242880
       default.replication.factor=1
@@ -257,5 +360,94 @@ kafka:
     enabled: false
   kraft:
     enabled: true
-  zookeeper:
+    clusterId: "1"
+
+apiServer:
+  name: metadata-api-server
+  commonLabels: {}
+  commonAnnotations: {}
+  serviceAccount:
+    name: metadata-api-server-sa
+  clusterRole:
+    name: metadata-api-server-crole
+    roleBinding: 
+      name: metadata-api-server-crb
+  image:
+    registry: docker-registry.lab.zverse.space
+    repository: data-and-computing-dev/meta-data
+    tag: 1.0.7
+    pullPolicy: Always
+    pullSecrets: []
+  automountServiceAccountToken: true
+  podLabels: {}
+  affinity: {}
+  podAnnotations: {}
+  podAffinityPreset: ""
+  podAntiAffinityPreset: soft
+  nodeAffinityPreset:
+    type: ""
+    key: ""
+    values: []
+  hostNetwork: false
+  dnsPolicy: ""
+  dnsConfig: {}
+  hostIPC: false
+  priorityClassName: ""
+  nodeSelector: {}
+  tolerations: []
+  schedulerName: ""
+  topologySpreadConstraints: []
+  podSecurityContext:
+    enabled: true
+    fsGroupChangePolicy: Always
+    supplementalGroups: []
+    fsGroup: 0
+  terminationGracePeriodSeconds: ""
+  hostAliases: []
+  command: []
+  args: []
+  diagnosticMode:
     enabled: false
+    command: ["tail", "-f", "/etc/hosts"]
+    args: []
+  extraEnvVars: []
+  extraEnvVarsCM: ""
+  extraEnvVarsSecret: ""
+  revisionHistoryLimit: 10
+  updateStrategy:
+    type: RollingUpdate
+    rollingUpdate: {}
+  lifecycleHooks: {}
+  resources: 
+    limits:
+      cpu: 2
+      ephemeral-storage: 8Gi
+      memory: 2Gi
+    requests:
+      cpu: 1
+      ephemeral-storage: 8Gi
+      memory: 1Gi
+  extraVolumes: []
+  extraVolumeMounts: []
+  livenessProbe:
+    enabled: false
+    initialDelaySeconds: 30
+    timeoutSeconds: 5
+    periodSeconds: 10
+    failureThreshold: 6
+    successThreshold: 1
+  startupProbe:
+    enabled: false
+    initialDelaySeconds: 30
+    timeoutSeconds: 5
+    periodSeconds: 10
+    failureThreshold: 6
+    successThreshold: 1
+  readinessProbe:
+    enabled: false
+    initialDelaySeconds: 5
+    timeoutSeconds: 3
+    periodSeconds: 5
+    failureThreshold: 3
+    successThreshold: 1
+
