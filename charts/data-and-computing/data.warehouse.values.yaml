@@ -134,10 +134,48 @@ certManager:
       repository: m.daocloud.io/quay.io/jetstack/cert-manager-startupapicheck
 
 flink:
-  enabled: true
-  image:
-    registry: m.daocloud.io/ghcr.io/apache/flink-kubernetes-operator
-  existingNamespace: flink
+  operator:
+    enabled: true
+    image:
+      registry: m.daocloud.io/ghcr.io
+      repository: apache/flink-kubernetes-operator
+      tag: 1.11.0
+    existingNamespace: flink
+  session:
+    version: v1_19
+    mode: native
+    image:
+      registry: docker-registry.lab.zverse.space
+      repository: astro-base-images/flink-oss-updated
+      tag: 1.19-java17
+      pullSecrets: []
+    state:
+      checkpoint:
+        path: s3://flink-test/checkpoints
+      savepoint:
+        path: s3://flink-test/savepoints
+    extraContainerPorts:
+      - name: flink-metric
+        containerPort: 9249
+        protocol: TCP
+    jobManager:
+      replicas: 1
+      resource:
+        cpu: 1
+        memory: 1Gi
+    taskManager:
+      replicas: 1
+      taskSlots: 2
+      resource:
+        cpu: 1
+        memory: 1Gi
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: self-signed-ca-issuer
+        nginx.ingress.kubernetes.io/rewrite-target: /$2
+      className: nginx
+      template: flink.k8s.io/{{namespace}}/{{name}}(/|$)(.*)
 
 minio:
   image:
