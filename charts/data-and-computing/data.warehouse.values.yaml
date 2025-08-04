@@ -116,7 +116,7 @@ ingestTaskOperator:
       targetPort: 8099
 
 certManager:
-  enabled: true
+  enabled: false
   installCRDs: false
   image:
     repository: m.daocloud.io/quay.io/jetstack/cert-manager-controller
@@ -135,13 +135,14 @@ certManager:
 
 flink:
   operator:
-    enabled: true
+    enabled: false
     image:
       registry: m.daocloud.io/ghcr.io
       repository: apache/flink-kubernetes-operator
       tag: 1.11.0
     existingNamespace: flink
   session:
+    enabled: false
     version: v1_19
     mode: native
     image:
@@ -151,9 +152,9 @@ flink:
       pullSecrets: []
     state:
       checkpoint:
-        path: s3://flink-test/checkpoints
+        path: file:///opt/flink/checkpoints
       savepoint:
-        path: s3://flink-test/savepoints
+        path: file:///opt/flink/savepoints
     extraContainerPorts:
       - name: flink-metric
         containerPort: 9249
@@ -176,6 +177,12 @@ flink:
         nginx.ingress.kubernetes.io/rewrite-target: /$2
       className: nginx
       template: flink.k8s.io/{{namespace}}/{{name}}(/|$)(.*)
+    persistence:
+      enabled: true
+      accessModes:
+        - ReadWriteOnce
+      size: 10Gi
+      storageClass: ""
 
 minio:
   image:
