@@ -176,11 +176,11 @@ flink:
         cert-manager.io/cluster-issuer: self-signed-ca-issuer
         nginx.ingress.kubernetes.io/rewrite-target: /$2
       className: nginx
-      template: flink.k8s.io/{{namespace}}/{{name}}(/|$)(.*)
+      template: flink.session.k8s.io/{{namespace}}/{{name}}(/|$)(.*)
     persistence:
-      enabled: true
+      enabled: false
       accessModes:
-        - ReadWriteOnce
+        - ReadWriteMany
       size: 10Gi
       storageClass: ""
 
