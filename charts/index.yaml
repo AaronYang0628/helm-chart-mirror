@@ -10,7 +10,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.14.8
-    created: "2025-08-05T09:54:38.6380739+08:00"
+    created: "2025-08-07T15:04:14.2033748+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -45,7 +45,7 @@ entries:
         url: https://argoproj.github.io/argo-helm/pgp_keys.asc
     apiVersion: v2
     appVersion: v2.8.4
-    created: "2025-08-05T09:54:38.6133135+08:00"
+    created: "2025-08-07T15:04:14.1797147+08:00"
     dependencies:
     - condition: redis-ha.enabled
       name: redis-ha
@@ -71,6 +71,61 @@ entries:
     urls:
     - argo/argo-cd-5.46.7.tgz
     version: 5.46.7
+  argo-events:
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: Bump argo-events to v1.9.7
+      artifacthub.io/signKey: |
+        fingerprint: 2B8F22F57260EFA67BE1C5824B11F800CD9D2252
+        url: https://argoproj.github.io/argo-helm/pgp_keys.asc
+    apiVersion: v2
+    appVersion: v1.9.7
+    created: "2025-08-07T15:04:14.216556+08:00"
+    description: A Helm chart for Argo Events, the event-driven workflow automation
+      framework
+    digest: de670ed578faa100b2e83a81c3f923bc216d79ff93439aca69e900f5d33d2fb0
+    home: https://github.com/argoproj/argo-helm
+    icon: https://avatars.githubusercontent.com/u/30269780?s=200&v=4
+    keywords:
+    - argoproj
+    - argo-events
+    maintainers:
+    - name: argoproj
+      url: https://argoproj.github.io/
+    name: argo-events
+    sources:
+    - https://github.com/argoproj/argo-events
+    urls:
+    - argo/argo-events-2.4.16.tgz
+    version: 2.4.16
+  - annotations:
+      artifacthub.io/changes: |
+        - kind: changed
+          description: Bump argo-events to v1.9.0
+      artifacthub.io/signKey: |
+        fingerprint: 2B8F22F57260EFA67BE1C5824B11F800CD9D2252
+        url: https://argoproj.github.io/argo-helm/pgp_keys.asc
+    apiVersion: v2
+    appVersion: v1.9.0
+    created: "2025-08-07T15:04:14.2279365+08:00"
+    description: A Helm chart for Argo Events, the event-driven workflow automation
+      framework
+    digest: 94c9803e62a64b4eabd0095c03ef3cface2c39a761b4b85f1f5c39b964b7e30e
+    home: https://github.com/argoproj/argo-helm
+    icon: https://avatars.githubusercontent.com/u/30269780?s=200&v=4
+    keywords:
+    - argoproj
+    - argo-events
+    maintainers:
+    - name: argoproj
+      url: https://argoproj.github.io/
+    name: argo-events
+    sources:
+    - https://github.com/argoproj/argo-events
+    urls:
+    - argo/argo-events-2.4.2.tgz
+    version: 2.4.2
   cert-manager:
   - annotations:
       artifacthub.io/category: security
@@ -81,7 +136,7 @@ entries:
         url: https://cert-manager.io/public-keys/cert-manager-keyring-2021-09-20-1020CF3C033D4F35BAE1C19E1226061C665DF13E.gpg
     apiVersion: v2
     appVersion: v1.17.2
-    created: "2025-08-05T09:54:38.9490632+08:00"
+    created: "2025-08-07T15:04:14.5483811+08:00"
     description: A Helm chart for cert-manager
     digest: 9f8eaada785a870112c7b1874952b7e8776fd066608361c83ecee859314393ad
     home: https://cert-manager.io
@@ -108,7 +163,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 2.22.0
-    created: "2025-08-05T09:54:38.6536053+08:00"
+    created: "2025-08-07T15:04:14.2452715+08:00"
     description: A Library Helm Chart for grouping common logic between bitnami charts.
       This chart is not deployable by itself.
     digest: f08ada920444add76d87a23c588089bfa1a59dd9cf516abe47bbc8aa0da9aee4
@@ -133,7 +188,7 @@ entries:
   data-warehouse:
   - apiVersion: v2
     appVersion: 1.11.0
-    created: "2025-08-05T09:54:38.8699326+08:00"
+    created: "2025-08-07T15:04:14.4719321+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -167,7 +222,7 @@ entries:
     version: 0.0.10
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2025-08-05T09:54:38.9170961+08:00"
+    created: "2025-08-07T15:04:14.5174781+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -213,7 +268,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 9.0.0
-    created: "2025-08-05T09:54:38.6726038+08:00"
+    created: "2025-08-07T15:04:14.2647885+08:00"
     dependencies:
     - condition: global.kibanaEnabled
       name: kibana
@@ -244,7 +299,7 @@ entries:
   flink-kubernetes-operator:
   - apiVersion: v2
     appVersion: 1.11.0
-    created: "2025-08-05T09:54:38.9357038+08:00"
+    created: "2025-08-07T15:04:14.5350212+08:00"
     description: A Helm chart for the Apache Flink Kubernetes Operator
     digest: d134ef3856e856f1a573631c10f919fcf24b2bc765c8852cb67862d344e00506
     icon: https://flink.apache.org/img/logo/png/50/color_50.png
@@ -260,7 +315,7 @@ entries:
       artifacthub.io/prerelease: "false"
     apiVersion: v2
     appVersion: 1.11.3
-    created: "2025-08-05T09:54:38.6877959+08:00"
+    created: "2025-08-07T15:04:14.2794368+08:00"
     description: Ingress controller for Kubernetes using NGINX as a reverse proxy
       and load balancer
     digest: a9f371489a6c18042508c0b5c2ea669deaad7ccc08f37efc4522e336edda1c20
@@ -299,7 +354,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 4.0.0
-    created: "2025-08-05T09:54:38.7093381+08:00"
+    created: "2025-08-07T15:04:14.3004906+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -328,7 +383,7 @@ entries:
     version: 32.2.3
   knative-operator:
   - apiVersion: v1
-    created: "2025-08-05T09:54:38.9928918+08:00"
+    created: "2025-08-07T15:04:14.5840267+08:00"
     description: Helm chart for deploying Knative Operator
     digest: 161c781e16622389cbcb7ef886188fa25935465331ec7fd0867a32a4be5679ff
     keywords:
@@ -341,7 +396,7 @@ entries:
     - knative/knative-operator-v1.18.1.tgz
     version: 1.18.1
   - apiVersion: v1
-    created: "2025-08-05T09:54:38.9841672+08:00"
+    created: "2025-08-07T15:04:14.5753007+08:00"
     description: Helm chart for deploying Knative Operator
     digest: 75fe99a03a89508159da0f72631a2ade3b63a865ae161a94c791f82ff6448644
     keywords:
@@ -355,7 +410,7 @@ entries:
     version: 1.15.7
   kserve:
   - apiVersion: v1
-    created: "2025-08-05T09:54:39.0426505+08:00"
+    created: "2025-08-07T15:04:14.6343699+08:00"
     description: Helm chart for deploying kserve resources
     digest: 92797e7625389503f8f31b4115845327385c24c5ec54d5892016cbcc5a3a0087
     keywords:
@@ -368,7 +423,7 @@ entries:
     - kserve/kserve-v0.15.2.tgz
     version: v0.15.2
   - apiVersion: v1
-    created: "2025-08-05T09:54:39.0257127+08:00"
+    created: "2025-08-07T15:04:14.6169124+08:00"
     description: Helm chart for deploying kserve resources
     digest: f7fa2dd99f6b680dad8a3bc69bff960262483bd868e3ec4ad78de6fc772a6401
     keywords:
@@ -382,7 +437,7 @@ entries:
     version: v0.15.0
   kserve-crd:
   - apiVersion: v1
-    created: "2025-08-05T09:54:39.0101053+08:00"
+    created: "2025-08-07T15:04:14.6023614+08:00"
     description: Helm chart for deploying kserve crds
     digest: 5a4fac89344a090ba22d5f067a10c106cc0a8033720367b38a0113aefadbab20
     keywords:
@@ -407,7 +462,7 @@ entries:
       artifacthub.io/operator: "true"
     apiVersion: v2
     appVersion: v0.82.2
-    created: "2025-08-05T09:54:38.7533922+08:00"
+    created: "2025-08-07T15:04:14.3437545+08:00"
     dependencies:
     - condition: crds.enabled
       name: crds
@@ -487,7 +542,7 @@ entries:
       licenses: Apache-2.0
     apiVersion: v2
     appVersion: 11.4.3
-    created: "2025-08-05T09:54:38.7679936+08:00"
+    created: "2025-08-07T15:04:14.3592801+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -529,7 +584,7 @@ entries:
       tanzuCategory: service
     apiVersion: v2
     appVersion: 2025.4.22
-    created: "2025-08-05T09:54:38.7888051+08:00"
+    created: "2025-08-07T15:04:14.377861+08:00"
     dependencies:
     - name: common
       repository: oci://registry-1.docker.io/bitnamicharts
@@ -560,7 +615,7 @@ entries:
   ska-src-dm-da-service-gatekeeper:
   - apiVersion: v2
     appVersion: 0.2.4
-    created: "2025-08-05T09:54:38.8264289+08:00"
+    created: "2025-08-07T15:04:14.4081365+08:00"
     dependencies:
     - name: ingress-nginx
       repository: https://kubernetes.github.io/ingress-nginx
@@ -578,7 +633,7 @@ entries:
     version: 0.2.4
   - apiVersion: v2
     appVersion: 0.1.8
-    created: "2025-08-05T09:54:38.8109225+08:00"
+    created: "2025-08-07T15:04:14.3912488+08:00"
     dependencies:
     - name: ingress-nginx
       repository: https://aaronyang0628.github.io/helm-chart-mirror/charts
@@ -599,7 +654,7 @@ entries:
       category: App
     apiVersion: v2
     appVersion: 25.05.0
-    created: "2025-08-05T09:54:39.2325723+08:00"
+    created: "2025-08-07T15:04:14.8407842+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -628,7 +683,7 @@ entries:
       category: App
     apiVersion: v2
     appVersion: 25.05.0
-    created: "2025-08-05T09:54:39.210529+08:00"
+    created: "2025-08-07T15:04:14.8198681+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -658,7 +713,7 @@ entries:
       category: App
     apiVersion: v2
     appVersion: 25.05.0
-    created: "2025-08-05T09:54:39.1899114+08:00"
+    created: "2025-08-07T15:04:14.8021248+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -688,7 +743,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-08-05T09:54:39.0912371+08:00"
+    created: "2025-08-07T15:04:14.6940407+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -718,7 +773,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-08-05T09:54:39.0772827+08:00"
+    created: "2025-08-07T15:04:14.678527+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -748,7 +803,7 @@ entries:
       category: Infrastructure
     apiVersion: v2
     appVersion: 24.05.3
-    created: "2025-08-05T09:54:39.0612625+08:00"
+    created: "2025-08-07T15:04:14.6557079+08:00"
     dependencies:
     - name: common
       repository: https://charts.bitnami.com/bitnami
@@ -777,7 +832,7 @@ entries:
   src-net-preparedata:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2025-08-05T09:54:38.8409379+08:00"
+    created: "2025-08-07T15:04:14.4234288+08:00"
     description: A Helm chart for SKAO preparedata application
     digest: c27c162f81bc3b4c9baafa90396a2bc25b040cd5365f5625f7af20efe12079d5
     name: src-net-preparedata
@@ -785,4 +840,4 @@ entries:
     urls:
     - cnsrc/src-net-preparedata-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-05T09:54:38.546+08:00"
+generated: "2025-08-07T15:04:14.0246177+08:00"
