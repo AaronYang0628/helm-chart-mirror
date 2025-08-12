@@ -1,5 +1,4 @@
 mariadb:
-  enabled: true
   port: 3306
   auth:
     rootPassword: "password-for-root"
@@ -11,6 +10,9 @@ mariadb:
       enabled: false
       storageClass: ""
       size: 2Gi
+  image:
+    registry: m.daocloud.io/docker.io
+    repository: bitnami/mariadb
 auth:
   ssh:
     secret:
@@ -139,7 +141,7 @@ slurmdCPU:
     tag: "25.05-open-mpi"
     pullPolicy: IfNotPresent
     pullSecrets: []
-  replicaCount: 2
+  replicaCount: 0
   automountServiceAccountToken: false
   podLabels: {}
   affinity: {}
@@ -168,8 +170,8 @@ slurmdCPU:
   hostAliases: []
   diagnosticMode:
     enabled: false
-    command: []
-    args: []
+    command: ["/bin/sh"]
+    args: ["-c", "sleep 1d"]
   extraEnvVars: []
   extraEnvVarsCM: ""
   extraEnvVarsSecret: ""
@@ -182,7 +184,7 @@ slurmdCPU:
     requests:
       cpu: 1
       ephemeral-storage: 10Gi
-      memory: 1Gi
+      memory: 2Gi
   extraVolumes: []
   extraVolumeMounts: []
   livenessProbe:
@@ -484,15 +486,19 @@ configuration:
   cgroup:
     name: cgroup-conf
     value: |-
+      CgroupPlugin=autodetect
+      IgnoreSystemd=yes
+      IgnoreSystemdOnFailure=yes
       ConstrainCores=yes
       ConstrainDevices=yes
       ConstrainRAMSpace=yes
       ConstrainSwapSpace=no
   slurmConf: |-
+    DebugFlags=cgroup
+    SlurmdDebug=debug
     ClusterName=slurm-cluster
     SlurmctldHost={{ include "slurm.fullname" . }}-{{ .Values.slurmctld.name }}-0
     MpiDefault=pmi2
-    ProctrackType=proctrack/cgroup
     ReturnToService=1
     SlurmctldPidFile=/var/run/slurmctld.pid
     SlurmctldPort={{ .Values.slurmctld.service.slurmctld.port }}
@@ -502,6 +508,7 @@ configuration:
     SlurmUser=slurm
     StateSaveLocation=/var/spool/slurmctld
     TaskPlugin=task/affinity,task/cgroup
+    ProctrackType=proctrack/cgroup
     InactiveLimit=0
     KillWait=30
     MinJobAge=300
@@ -518,10 +525,9 @@ configuration:
     JobAcctGatherFrequency=30
     SlurmctldDebug=info
     SlurmctldLogFile=/var/log/slurm/slurmctld.log
-    SlurmdDebug=info
     SlurmdLogFile=/var/log/slurm/slurmd.log
-    NodeName={{ include "slurm.fullname" . }}-slurmd-cpu-[0-99] CPUs=1 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=2048 Procs=1 State=UNKNOWN
-    NodeName={{ include "slurm.fullname" . }}-slurmd-gpu-[0-99] CPUs=1 CoresPerSocket=1 ThreadsPerCore=1 RealMemory=2048 Procs=1 State=UNKNOWN
+    NodeName={{ include "slurm.fullname" . }}-slurmd-cpu-[0-99] CPUs=2 Sockets=1 CoresPerSocket=2 ThreadsPerCore=1 RealMemory=2048 State=UNKNOWN
+    NodeName={{ include "slurm.fullname" . }}-slurmd-gpu-[0-99] CPUs=8 Sockets=1 CoresPerSocket=2 ThreadsPerCore=4 RealMemory=2048 State=UNKNOWN
     PartitionName=compute Nodes=ALL Default=YES MaxTime=INFINITE State=UP
   slurmdbdConf: |-
     AuthType=auth/munge

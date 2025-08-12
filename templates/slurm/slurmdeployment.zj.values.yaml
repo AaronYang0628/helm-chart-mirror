@@ -9,8 +9,8 @@ spec:
   chart:
     name: slurm
     repository: https://aaronyang0628.github.io/helm-chart-mirror/charts/slurm
-    version: 1.0.9
-    namespace: test
+    version: 1.0.10
+    namespace: slurm-nadc
   job:
     command: ["sh", "-c"]
     args: ["srun -N 2 /bin/hostname"]
@@ -20,19 +20,21 @@ spec:
       port: 3306
       primary:
         persistence:
-          enabled: false
+          enabled: true
+          storageClass: "nas-nm129-25ge-si000958a3ec"
+          size: 8Gi
     auth:
       ssh:
         configmap:
           name: slurm-ssh-auth-keys
-          prefabPubKeys: ["ssh-rsa sample_public_key"]
+          prefabPubKeys: ["ssh-rsa xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
     persistence:
       shared:
         enabled: true
         accessModes:
           - ReadWriteMany
         name: slurm-shared-storage
-        storageClass: ""
+        storageClass: "nas-nm129-25ge-si000958a3ec"
         size: 8Gi
     munged:
       image:
@@ -62,8 +64,26 @@ spec:
         tag: 25.05-open-mpi
       resources: 
         requests:
-          core: 1
-          cpu: 500m
+          socket: 2
+          core-per-socket: 1
+          thread-per-core: 1
           ephemeral-storage: 10Gi
-          memory: 1Gi
-  
+          memory: 4Gi
+      nodeSelector: {}
+    slurmdGPU:
+      replicaCount: 1
+      nodeAffinityPreset:
+        key: "kubernetes.io/hostname"
+        values: ["node5"]
+        weight: 0
+      image:
+        registry: docker-registry.lab.zverse.space
+        repository: data-and-computing/slurm-slurmd
+        tag: 25.05-open-mpi
+      resources: 
+        requests:
+          socket: 2
+          core-per-socket: 1
+          thread-per-core: 1
+          ephemeral-storage: 10Gi
+          memory: 4Gi
