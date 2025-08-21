@@ -30,8 +30,6 @@ ingestTaskOperator:
     clusterRoleBinding:
       name: "metadata-ingest-operator-crb"
   flink:
-    serviceAccount:
-      name: "metadata-ingest-flink-sa"
     clusterRole:
       name: "metadata-ingest-flink-crole"
     clusterRoleBinding:
@@ -116,8 +114,8 @@ ingestTaskOperator:
       targetPort: 8099
 
 certManager:
-  enabled: false
-  installCRDs: false
+  enabled: true
+  installCRDs: true
   image:
     repository: m.daocloud.io/quay.io/jetstack/cert-manager-controller
   webhook:
@@ -133,16 +131,20 @@ certManager:
     image:
       repository: m.daocloud.io/quay.io/jetstack/cert-manager-startupapicheck
 
+flinkk8soperator:
+  enabled: true
+  image:
+    repository: m.lab.zverse.space/ghcr.io/apache/flink-kubernetes-operator
+    tag: 1.11.0
+  defaultConfiguration:
+    create: true
+    append: true
+    flink-conf.yaml: |+
+      kubernetes.operator.flink.client.timeout: 120 s
+  existingNamespace: flink
+
 flink:
-  operator:
-    enabled: false
-    image:
-      registry: m.daocloud.io/ghcr.io
-      repository: apache/flink-kubernetes-operator
-      tag: 1.11.0
-    existingNamespace: flink
   session:
-    enabled: false
     version: v1_19
     mode: native
     image:
@@ -183,7 +185,46 @@ flink:
         - ReadWriteMany
       size: 10Gi
       storageClass: ""
-
+  residenceJobs:
+    consumeKafkaToES:
+      enabled: true
+      name: ingest-kafka-to-es
+      version: v1_19
+      mode: native
+      image: 
+        registry: docker-registry.lab.zverse.space  
+        repository: data-and-computing-dev/ingest-to-es-transfer
+        tag: test
+        pullSecrets: []
+      extraContainerPorts:
+      - name: flink-metric
+        containerPort: 9249
+        protocol: TCP
+      extraEnvVars: []
+      jobManager:
+        replicas: 1
+        resource:
+          cpu: 1
+          memory: 2Gi
+      taskManager:
+        replicas: 1
+        taskSlots: 2
+        resource:
+          cpu: 1
+          memory: 2Gi
+      ingress:
+        enabled: true
+        annotations:
+          cert-manager.io/cluster-issuer: self-signed-ca-issuer
+          nginx.ingress.kubernetes.io/rewrite-target: /$2
+        className: nginx
+        template: flink.residence.job/{{namespace}}/{{name}}(/|$)(.*)
+      job:
+        jarURI: local:///app/flink-application.jar
+        parallelism: 2
+        entryClass: com.zhejianglab.astronomy.es.IngestToEs
+        args: []  
+    
 minio:
   image:
     registry: m.lab.zverse.space/docker.io

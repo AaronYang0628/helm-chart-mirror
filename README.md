@@ -49,10 +49,10 @@ Useful Helm Client Commands:
   helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/argo/argo.cd.values.yaml argo-cd ay-helm-mirror/argo-cd --version=X.XX.X
   ```
 - Data-And-Computing
-  - **data-warehouse** version: `0.0.5`
+  - **data-warehouse** version: `0.0.11`
 
   ```shell
-  helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/data-and-computing/data-warehouse.values.yaml argo-cd ay-helm-mirror/data-warehouse --version=0.0.5
+  helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/data-and-computing/data-warehouse.values.yaml argo-cd ay-helm-mirror/data-warehouse --version=0.0.11
   ```
 - Flink
   - **flink-k8s-operator** version: `1.11.0`
