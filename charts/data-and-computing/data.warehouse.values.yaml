@@ -15,7 +15,7 @@ ingestTaskOperator:
   image:
     registry: docker-registry.lab.zverse.space
     repository: ay-dev/metadata-operator
-    tag: latest
+    tag: qipan
     pullPolicy: Always
     pullSecrets: []
   serviceAccount:
@@ -30,6 +30,8 @@ ingestTaskOperator:
     clusterRoleBinding:
       name: "metadata-ingest-operator-crb"
   flink:
+    serviceAccount:
+      name: "metadata-ingest-flink-sa"
     clusterRole:
       name: "metadata-ingest-flink-crole"
     clusterRoleBinding:
