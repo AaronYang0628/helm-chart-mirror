@@ -15,7 +15,7 @@ ingestTaskOperator:
   image:
     registry: docker-registry.lab.zverse.space
     repository: ay-dev/metadata-operator
-    tag: qipan
+    tag: v20250822r2
     pullPolicy: Always
     pullSecrets: []
   serviceAccount:
@@ -377,6 +377,7 @@ elasticsearch:
       tls: false
 
 kafka:
+  replicationFactor: 1
   image:
     registry: m.lab.zverse.space/docker.io
   listeners:
