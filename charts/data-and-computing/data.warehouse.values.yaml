@@ -154,6 +154,7 @@ flink:
       repository: astro-base-images/flink-oss-updated
       tag: 1.19-java17
       pullSecrets: []
+    clusterNamespaces: []
     state:
       checkpoint:
         path: file:///opt/flink/checkpoints
@@ -178,9 +179,9 @@ flink:
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: self-signed-ca-issuer
-        nginx.ingress.kubernetes.io/rewrite-target: /$2
+        nginx.ingress.kubernetes.io/rewrite-target: /$1
       className: nginx
-      template: flink.session.k8s.io/{{namespace}}/{{name}}(/|$)(.*)
+      template: flink.session.k8s.io/{{namespace}}/{{name}}/?(.*)
     persistence:
       enabled: false
       accessModes:
@@ -218,9 +219,9 @@ flink:
         enabled: true
         annotations:
           cert-manager.io/cluster-issuer: self-signed-ca-issuer
-          nginx.ingress.kubernetes.io/rewrite-target: /$2
+          nginx.ingress.kubernetes.io/rewrite-target: /$1
         className: nginx
-        template: flink.residence.job/{{namespace}}/{{name}}(/|$)(.*)
+        template: flink.residence.job/{{namespace}}/{{name}}/?(.*)
       job:
         jarURI: local:///app/flink-application.jar
         parallelism: 2
@@ -370,6 +371,7 @@ elasticsearch:
     ingress:
       enabled: true
       annotations:
+        cert-manager.io/cluster-issuer: self-signed-ca-issuer
         nginx.ingress.kubernetes.io/rewrite-target: /$1
       hostname: kibana.metadata.dev
       ingressClassName: nginx
