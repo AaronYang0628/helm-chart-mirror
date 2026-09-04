@@ -1,0 +1,65 @@
+name: Update Sub2API chart
+
+on:
+  schedule:
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sub2api-chart-update
+  cancel-in-progress: false
+
+env:
+  SOURCE_CHART_OCI: oci://ghcr.io/ben-wangz/k8s-at-home-charts/sub2api
+  IMAGE_REPOSITORY: ghcr.io/wei-shaw/sub2api
+  OCI_REPOSITORY: oci://ghcr.io/aaronyang0628/helm-chart-mirror
+
+jobs:
+  update:
+    name: Prepare update PR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.17.3
+
+      - name: Resolve and package latest release
+        id: update
+        run: bash scripts/sub2api.sh update
+
+      - name: Check generated changes
+        if: steps.update.outputs.changed == 'true'
+        run: git diff --check
+
+      - name: Open update pull request
+        if: steps.update.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: automation/sub2api-update
+          delete-branch: true
+          commit-message: >-
+            chore(sub2api): update chart to
+            ${{ steps.update.outputs.release_version }}
+          title: >-
+            chore(sub2api): update chart to
+            ${{ steps.update.outputs.release_version }}
+          body: |
+            This PR was generated from the latest stable Sub2API release.
+
+            - Application version: `${{ steps.update.outputs.release_version }}`
+            - Chart version: `${{ steps.update.outputs.chart_version }}`
+            - Linux amd64 image digest: `${{ steps.update.outputs.image_digest }}`
+
+            The chart package, repository index, and README were generated and verified by `scripts/sub2api.sh`.

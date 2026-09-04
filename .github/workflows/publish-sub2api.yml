@@ -1,0 +1,67 @@
+name: Publish Sub2API chart
+
+on:
+  pull_request:
+    types:
+      - closed
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  OCI_REPOSITORY: oci://ghcr.io/aaronyang0628/helm-chart-mirror
+  IMAGE_REPOSITORY: ghcr.io/wei-shaw/sub2api
+
+jobs:
+  publish:
+    name: Publish merged chart packages
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out merge commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.merge_commit_sha }}
+          fetch-depth: 0
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.17.3
+
+      - name: Find merged Sub2API packages
+        id: changed
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          MERGE_SHA: ${{ github.event.pull_request.merge_commit_sha }}
+        run: |
+          set -Eeuo pipefail
+          package_list="${RUNNER_TEMP}/sub2api-packages.txt"
+          git diff --name-only "${BASE_SHA}" "${MERGE_SHA}" -- 'charts/sub2api/*.tgz' >"${package_list}"
+          if [[ -s "${package_list}" ]]; then
+            echo 'publish=true' >>"${GITHUB_OUTPUT}"
+          else
+            echo 'publish=false' >>"${GITHUB_OUTPUT}"
+          fi
+
+      - name: Verify merged packages
+        if: steps.changed.outputs.publish == 'true'
+        run: |
+          set -Eeuo pipefail
+          while IFS= read -r package; do
+            [[ -n "${package}" ]] || continue
+            bash scripts/sub2api.sh verify "${package}"
+          done <"${RUNNER_TEMP}/sub2api-packages.txt"
+
+      - name: Publish and verify OCI packages
+        if: steps.changed.outputs.publish == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
+        run: |
+          set -Eeuo pipefail
+          while IFS= read -r package; do
+            [[ -n "${package}" ]] || continue
+            bash scripts/sub2api.sh publish "${package}"
+          done <"${RUNNER_TEMP}/sub2api-packages.txt"

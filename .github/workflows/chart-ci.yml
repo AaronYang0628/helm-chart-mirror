@@ -1,0 +1,41 @@
+name: Sub2API chart CI
+
+on:
+  pull_request:
+    paths:
+      - 'charts/index.yaml'
+      - 'charts/sub2api/**'
+      - 'scripts/sub2api.sh'
+      - '.github/workflows/chart-ci.yml'
+      - '.github/workflows/update-sub2api.yml'
+      - '.github/workflows/publish-sub2api.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'charts/index.yaml'
+      - 'charts/sub2api/**'
+      - 'scripts/sub2api.sh'
+      - '.github/workflows/chart-ci.yml'
+      - '.github/workflows/update-sub2api.yml'
+      - '.github/workflows/publish-sub2api.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate Sub2API chart
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.17.3
+
+      - name: Verify chart package, index, and image
+        run: bash scripts/sub2api.sh verify
