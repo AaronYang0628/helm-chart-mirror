@@ -96,7 +96,12 @@ bump_patch() {
 
 latest_release_version() {
   local tag
+  local auth_header=()
+  if [[ -n "${GITHUB_TOKEN:-}" ]]; then
+    auth_header=(-H "Authorization: Bearer ${GITHUB_TOKEN}")
+  fi
   tag="$(curl -fsSL --retry 3 --retry-delay 2 --connect-timeout 10 --max-time 60 \
+    "${auth_header[@]}" \
     -H 'Accept: application/vnd.github+json' \
     'https://api.github.com/repos/Wei-Shaw/sub2api/releases?per_page=30' |
     jq -er '
