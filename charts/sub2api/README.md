@@ -7,7 +7,7 @@ Linux amd64 application image by digest.
 ## Install
 
 ```sh
-export CHART_VERSION=0.1.11
+export CHART_VERSION=0.1.12
 
 helm repo add ay-helm-mirror https://aaronyang0628.github.io/helm-chart-mirror/charts
 helm repo update
