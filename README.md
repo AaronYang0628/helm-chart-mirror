@@ -80,7 +80,7 @@ Useful Helm Client Commands:
   helm upgrade --install -f https://raw.githubusercontent.com/AaronYang0628/helm-chart-mirror/refs/heads/main/charts/slurm/slurm.values.yaml argo-cd ay-helm-mirror/slurm --version=1.0.9
   ```
 - Sub2API
-  - **sub2api** chart version: `0.1.12` (application `0.2.1`)
+  - **sub2api** chart version: `0.1.13` (application `0.2.3`)
 
   ```shell
   helm upgrade --install sub2api ay-helm-mirror/sub2api --version=0.1.11 --namespace=ai --create-namespace
