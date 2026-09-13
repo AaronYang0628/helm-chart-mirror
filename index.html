@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="国内可用的 Helm Chart 镜像 · Faster Helm chart mirror with searchable catalog" />
+  <title>Helm Chart Mirror · 国内好用的 Helm Chart 镜像</title>
+  <link rel="stylesheet" href="./assets/css/catalog.css" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">⎈</span>
+        <div>
+          <div class="brand-title">Helm Chart Mirror</div>
+          <div class="brand-sub" data-i18n="brandSub">国内可用 · GitHub Pages</div>
+        </div>
+      </div>
+      <nav class="header-actions">
+        <button type="button" class="lang-toggle" id="langToggle" aria-label="Toggle language">中文 / EN</button>
+        <a class="btn ghost" href="https://github.com/AaronYang0628/helm-chart-mirror" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow" data-i18n="eyebrow">Faster downloads in China · 镜像加速</p>
+        <h1 data-i18n="heroTitle">国内好用的 Helm Chart 镜像</h1>
+        <p class="hero-lead" data-i18n="heroLead">Faster Helm chart mirror — search charts, browse versions, copy install commands.</p>
+
+        <div class="repo-add">
+          <code id="repoAddCmd">helm repo add ay-helm-mirror https://aaronyang0628.github.io/helm-chart-mirror/charts</code>
+          <button type="button" class="btn copy" data-copy-target="repoAddCmd" data-i18n="copy">Copy</button>
+        </div>
+
+        <div class="search-row">
+          <label class="sr-only" for="searchInput" data-i18n="searchLabel">Search charts</label>
+          <input id="searchInput" type="search" autocomplete="off" spellcheck="false"
+            data-i18n-placeholder="searchPlaceholder"
+            placeholder="Search by name, keyword, description…" />
+          <span class="search-meta" id="resultMeta"></span>
+        </div>
+
+        <div class="chips" id="familyChips" role="list" aria-label="Filter by family"></div>
+      </div>
+    </section>
+
+    <section class="catalog container">
+      <div id="status" class="status" role="status" aria-live="polite"></div>
+      <div id="chartGrid" class="chart-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p data-i18n="footerNote">Catalog loads from <code>charts/index.yaml</code> so versions stay in sync with the mirror.</p>
+      <p>
+        <a href="./charts/index.yaml">index.yaml</a>
+        ·
+        <a href="./assets/catalog.json">catalog.json</a>
+        ·
+        <a href="https://github.com/AaronYang0628/helm-chart-mirror">source</a>
+      </p>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button type="button" class="modal-close" data-close-modal aria-label="Close">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="./assets/js/catalog.js"></script>
+</body>
+</html>

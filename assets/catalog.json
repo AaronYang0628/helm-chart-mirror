@@ -1,0 +1,1373 @@
+{
+  "generatedFrom": "charts/index.yaml",
+  "repoUrl": "https://aaronyang0628.github.io/helm-chart-mirror/charts",
+  "chartCount": 24,
+  "charts": [
+    {
+      "name": "act-runner",
+      "family": "action",
+      "description": "Act Runners for Gitea Actions.",
+      "keywords": [
+        "gitea",
+        "actions",
+        "act-runner",
+        "act_runner",
+        "cicd"
+      ],
+      "home": "https://github.com/AaronYang0628/act-runner",
+      "sources": [
+        "https://github.com/AaronYang0628/act-runner"
+      ],
+      "icon": null,
+      "latestVersion": "0.2.2",
+      "appVersion": "0.2.11",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "0.2.2",
+          "appVersion": "0.2.11",
+          "created": "2025-12-08T11:02:04.0707295+08:00",
+          "urls": [
+            "action/act-runner-0.2.2.tgz"
+          ],
+          "description": "Act Runners for Gitea Actions.",
+          "home": "https://github.com/AaronYang0628/act-runner",
+          "sources": [
+            "https://github.com/AaronYang0628/act-runner"
+          ],
+          "keywords": [
+            "gitea",
+            "actions",
+            "act-runner",
+            "act_runner",
+            "cicd"
+          ],
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "argo-cd",
+      "family": "argo",
+      "description": "A Helm chart for Argo CD, a declarative, GitOps continuous delivery tool for Kubernetes.",
+      "keywords": [
+        "argoproj",
+        "argocd",
+        "gitops"
+      ],
+      "home": "https://github.com/argoproj/argo-helm",
+      "sources": [
+        "https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd",
+        "https://github.com/argoproj/argo-cd"
+      ],
+      "icon": "https://argo-cd.readthedocs.io/en/stable/assets/logo.png",
+      "latestVersion": "8.3.5",
+      "appVersion": "v3.1.4",
+      "versionCount": 3,
+      "versions": [
+        {
+          "version": "8.3.5",
+          "appVersion": "v3.1.4",
+          "created": "2025-12-08T11:02:04.0997606+08:00",
+          "urls": [
+            "argo/argo-cd-8.3.5.tgz"
+          ],
+          "description": "A Helm chart for Argo CD, a declarative, GitOps continuous delivery tool for Kubernetes.",
+          "home": "https://github.com/argoproj/argo-helm",
+          "sources": [
+            "https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd",
+            "https://github.com/argoproj/argo-cd"
+          ],
+          "keywords": [
+            "argoproj",
+            "argocd",
+            "gitops"
+          ],
+          "icon": "https://argo-cd.readthedocs.io/en/stable/assets/logo.png"
+        },
+        {
+          "version": "7.8.14",
+          "appVersion": "v2.14.8",
+          "created": "2025-12-08T11:02:04.0897518+08:00",
+          "urls": [
+            "argo/argo-cd-7.8.14.tgz"
+          ],
+          "description": "A Helm chart for Argo CD, a declarative, GitOps continuous delivery tool for Kubernetes.",
+          "home": "https://github.com/argoproj/argo-helm",
+          "sources": [
+            "https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd",
+            "https://github.com/argoproj/argo-cd"
+          ],
+          "keywords": [
+            "argoproj",
+            "argocd",
+            "gitops"
+          ],
+          "icon": "https://argo-cd.readthedocs.io/en/stable/assets/logo.png"
+        },
+        {
+          "version": "5.46.7",
+          "appVersion": "v2.8.4",
+          "created": "2025-12-08T11:02:04.0787376+08:00",
+          "urls": [
+            "argo/argo-cd-5.46.7.tgz"
+          ],
+          "description": "A Helm chart for Argo CD, a declarative, GitOps continuous delivery tool for Kubernetes.",
+          "home": "https://github.com/argoproj/argo-helm",
+          "sources": [
+            "https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd",
+            "https://github.com/argoproj/argo-cd"
+          ],
+          "keywords": [
+            "argoproj",
+            "argocd",
+            "gitops"
+          ],
+          "icon": "https://argo-cd.readthedocs.io/en/stable/assets/logo.png"
+        }
+      ]
+    },
+    {
+      "name": "argo-events",
+      "family": "argo",
+      "description": "A Helm chart for Argo Events, the event-driven workflow automation framework",
+      "keywords": [
+        "argoproj",
+        "argo-events"
+      ],
+      "home": "https://github.com/argoproj/argo-helm",
+      "sources": [
+        "https://github.com/argoproj/argo-events"
+      ],
+      "icon": "https://avatars.githubusercontent.com/u/30269780?s=200&v=4",
+      "latestVersion": "2.4.16",
+      "appVersion": "v1.9.7",
+      "versionCount": 2,
+      "versions": [
+        {
+          "version": "2.4.16",
+          "appVersion": "v1.9.7",
+          "created": "2025-12-08T11:02:04.1007612+08:00",
+          "urls": [
+            "argo/argo-events-2.4.16.tgz"
+          ],
+          "description": "A Helm chart for Argo Events, the event-driven workflow automation framework",
+          "home": "https://github.com/argoproj/argo-helm",
+          "sources": [
+            "https://github.com/argoproj/argo-events"
+          ],
+          "keywords": [
+            "argoproj",
+            "argo-events"
+          ],
+          "icon": "https://avatars.githubusercontent.com/u/30269780?s=200&v=4"
+        },
+        {
+          "version": "2.4.2",
+          "appVersion": "v1.9.0",
+          "created": "2025-12-08T11:02:04.1017618+08:00",
+          "urls": [
+            "argo/argo-events-2.4.2.tgz"
+          ],
+          "description": "A Helm chart for Argo Events, the event-driven workflow automation framework",
+          "home": "https://github.com/argoproj/argo-helm",
+          "sources": [
+            "https://github.com/argoproj/argo-events"
+          ],
+          "keywords": [
+            "argoproj",
+            "argo-events"
+          ],
+          "icon": "https://avatars.githubusercontent.com/u/30269780?s=200&v=4"
+        }
+      ]
+    },
+    {
+      "name": "argo-workflows",
+      "family": "argo",
+      "description": "A Helm chart for Argo Workflows",
+      "keywords": [],
+      "home": "https://github.com/argoproj/argo-helm",
+      "sources": [
+        "https://github.com/argoproj/argo-workflows"
+      ],
+      "icon": "https://argo-workflows.readthedocs.io/en/stable/assets/logo.png",
+      "latestVersion": "0.45.27",
+      "appVersion": "v3.7.3",
+      "versionCount": 2,
+      "versions": [
+        {
+          "version": "0.45.27",
+          "appVersion": "v3.7.3",
+          "created": "2025-12-08T11:02:04.105766+08:00",
+          "urls": [
+            "argo/argo-workflows-0.45.27.tgz"
+          ],
+          "description": "A Helm chart for Argo Workflows",
+          "home": "https://github.com/argoproj/argo-helm",
+          "sources": [
+            "https://github.com/argoproj/argo-workflows"
+          ],
+          "keywords": [],
+          "icon": "https://argo-workflows.readthedocs.io/en/stable/assets/logo.png"
+        },
+        {
+          "version": "0.40.11",
+          "appVersion": "v3.5.4",
+          "created": "2025-12-08T11:02:04.1037636+08:00",
+          "urls": [
+            "argo/argo-workflows-0.40.11.tgz"
+          ],
+          "description": "A Helm chart for Argo Workflows",
+          "home": "https://github.com/argoproj/argo-helm",
+          "sources": [
+            "https://github.com/argoproj/argo-workflows"
+          ],
+          "keywords": [],
+          "icon": "https://argo-workflows.readthedocs.io/en/stable/assets/logo.png"
+        }
+      ]
+    },
+    {
+      "name": "cert-manager",
+      "family": "jetstack",
+      "description": "A Helm chart for cert-manager",
+      "keywords": [
+        "cert-manager",
+        "kube-lego",
+        "letsencrypt",
+        "tls"
+      ],
+      "home": "https://cert-manager.io",
+      "sources": [
+        "https://github.com/cert-manager/cert-manager"
+      ],
+      "icon": "https://raw.githubusercontent.com/cert-manager/community/4d35a69437d21b76322157e6284be4cd64e6d2b7/logo/logo-small.png",
+      "latestVersion": "v1.17.2",
+      "appVersion": "v1.17.2",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "v1.17.2",
+          "appVersion": "v1.17.2",
+          "created": "2025-12-08T11:02:04.3619982+08:00",
+          "urls": [
+            "jetstack/cert-manager-v1.17.2.tgz"
+          ],
+          "description": "A Helm chart for cert-manager",
+          "home": "https://cert-manager.io",
+          "sources": [
+            "https://github.com/cert-manager/cert-manager"
+          ],
+          "keywords": [
+            "cert-manager",
+            "kube-lego",
+            "letsencrypt",
+            "tls"
+          ],
+          "icon": "https://raw.githubusercontent.com/cert-manager/community/4d35a69437d21b76322157e6284be4cd64e6d2b7/logo/logo-small.png"
+        }
+      ]
+    },
+    {
+      "name": "common",
+      "family": "bitnami",
+      "description": "A Library Helm Chart for grouping common logic between bitnami charts. This chart is not deployable by itself.",
+      "keywords": [
+        "common",
+        "helper",
+        "template",
+        "function",
+        "bitnami"
+      ],
+      "home": "https://bitnami.com",
+      "sources": [
+        "https://github.com/bitnami/charts/tree/main/bitnami/common"
+      ],
+      "icon": "https://bitnami.com/downloads/logos/bitnami-mark.png",
+      "latestVersion": "2.22.0",
+      "appVersion": "2.22.0",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "2.22.0",
+          "appVersion": "2.22.0",
+          "created": "2025-12-08T11:02:04.1067668+08:00",
+          "urls": [
+            "bitnami/common-2.22.0.tgz"
+          ],
+          "description": "A Library Helm Chart for grouping common logic between bitnami charts. This chart is not deployable by itself.",
+          "home": "https://bitnami.com",
+          "sources": [
+            "https://github.com/bitnami/charts/tree/main/bitnami/common"
+          ],
+          "keywords": [
+            "common",
+            "helper",
+            "template",
+            "function",
+            "bitnami"
+          ],
+          "icon": "https://bitnami.com/downloads/logos/bitnami-mark.png"
+        }
+      ]
+    },
+    {
+      "name": "data-warehouse",
+      "family": "data-and-computing",
+      "description": "A Helm chart for Kubernetes",
+      "keywords": [
+        "metadata",
+        "flink"
+      ],
+      "home": null,
+      "sources": [],
+      "icon": null,
+      "latestVersion": "0.0.25",
+      "appVersion": "0.1.0-SNAPSHOT",
+      "versionCount": 6,
+      "versions": [
+        {
+          "version": "0.0.25",
+          "appVersion": "0.1.0-SNAPSHOT",
+          "created": "2025-12-08T11:02:04.3359745+08:00",
+          "urls": [
+            "data-and-computing/data-warehouse-0.0.25.tgz"
+          ],
+          "description": "A Helm chart for Kubernetes",
+          "home": null,
+          "sources": [],
+          "keywords": [
+            "metadata",
+            "flink"
+          ],
+          "icon": null
+        },
+        {
+          "version": "0.0.20",
+          "appVersion": "1.11.0",
+          "created": "2025-12-08T11:02:04.3069485+08:00",
+          "urls": [
+            "data-and-computing/data-warehouse-0.0.20.tgz"
+          ],
+          "description": "A Helm chart for Kubernetes",
+          "home": null,
+          "sources": [],
+          "keywords": [
+            "metadata",
+            "flink"
+          ],
+          "icon": null
+        },
+        {
+          "version": "0.0.19",
+          "appVersion": "1.11.0",
+          "created": "2025-12-08T11:02:04.2799243+08:00",
+          "urls": [
+            "data-and-computing/data-warehouse-0.0.19.tgz"
+          ],
+          "description": "A Helm chart for Kubernetes",
+          "home": null,
+          "sources": [],
+          "keywords": [
+            "metadata",
+            "flink"
+          ],
+          "icon": null
+        },
+        {
+          "version": "0.0.18",
+          "appVersion": "1.11.0",
+          "created": "2025-12-08T11:02:04.2528997+08:00",
+          "urls": [
+            "data-and-computing/data-warehouse-0.0.18.tgz"
+          ],
+          "description": "A Helm chart for Kubernetes",
+          "home": null,
+          "sources": [],
+          "keywords": [
+            "metadata",
+            "flink"
+          ],
+          "icon": null
+        },
+        {
+          "version": "0.0.17",
+          "appVersion": "1.11.0",
+          "created": "2025-12-08T11:02:04.2258754+08:00",
+          "urls": [
+            "data-and-computing/data-warehouse-0.0.17.tgz"
+          ],
+          "description": "A Helm chart for Kubernetes",
+          "home": null,
+          "sources": [],
+          "keywords": [
+            "metadata",
+            "flink"
+          ],
+          "icon": null
+        },
+        {
+          "version": "0.0.16",
+          "appVersion": "1.11.0",
+          "created": "2025-12-08T11:02:04.1978501+08:00",
+          "urls": [
+            "data-and-computing/data-warehouse-0.0.16.tgz"
+          ],
+          "description": "A Helm chart for Kubernetes",
+          "home": null,
+          "sources": [],
+          "keywords": [
+            "metadata",
+            "flink"
+          ],
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "elasticsearch",
+      "family": "bitnami",
+      "description": "Elasticsearch is a distributed search and analytics engine. It is used for web search, log monitoring, and real-time analytics. Ideal for Big Data applications.",
+      "keywords": [
+        "elasticsearch"
+      ],
+      "home": "https://bitnami.com",
+      "sources": [
+        "https://github.com/bitnami/charts/tree/main/bitnami/elasticsearch"
+      ],
+      "icon": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/elasticsearch/img/elasticsearch-stack-220x234.png",
+      "latestVersion": "22.0.2",
+      "appVersion": "9.0.0",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "22.0.2",
+          "appVersion": "9.0.0",
+          "created": "2025-12-08T11:02:04.1147734+08:00",
+          "urls": [
+            "bitnami/elasticsearch-22.0.2.tgz"
+          ],
+          "description": "Elasticsearch is a distributed search and analytics engine. It is used for web search, log monitoring, and real-time analytics. Ideal for Big Data applications.",
+          "home": "https://bitnami.com",
+          "sources": [
+            "https://github.com/bitnami/charts/tree/main/bitnami/elasticsearch"
+          ],
+          "keywords": [
+            "elasticsearch"
+          ],
+          "icon": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/elasticsearch/img/elasticsearch-stack-220x234.png"
+        }
+      ]
+    },
+    {
+      "name": "flink-kubernetes-operator",
+      "family": "flink",
+      "description": "A Helm chart for the Apache Flink Kubernetes Operator",
+      "keywords": [],
+      "home": null,
+      "sources": [],
+      "icon": "https://flink.apache.org/img/logo/png/50/color_50.png",
+      "latestVersion": "1.13.0",
+      "appVersion": "1.13.0",
+      "versionCount": 2,
+      "versions": [
+        {
+          "version": "1.13.0",
+          "appVersion": "1.13.0",
+          "created": "2025-12-08T11:02:04.3389774+08:00",
+          "urls": [
+            "flink/flink-kubernetes-operator-1.13.0-helm.tgz"
+          ],
+          "description": "A Helm chart for the Apache Flink Kubernetes Operator",
+          "home": null,
+          "sources": [],
+          "keywords": [],
+          "icon": "https://flink.apache.org/img/logo/png/50/color_50.png"
+        },
+        {
+          "version": "1.11.0",
+          "appVersion": "1.11.0",
+          "created": "2025-12-08T11:02:04.3369755+08:00",
+          "urls": [
+            "flink/flink-kubernetes-operator-1.11.0-helm.tgz"
+          ],
+          "description": "A Helm chart for the Apache Flink Kubernetes Operator",
+          "home": null,
+          "sources": [],
+          "keywords": [],
+          "icon": "https://flink.apache.org/img/logo/png/50/color_50.png"
+        }
+      ]
+    },
+    {
+      "name": "gitea",
+      "family": "gitea",
+      "description": "Gitea Helm chart for Kubernetes",
+      "keywords": [
+        "git",
+        "issue tracker",
+        "code review",
+        "wiki",
+        "gitea",
+        "gogs"
+      ],
+      "home": null,
+      "sources": [
+        "https://gitea.com/gitea/helm-gitea",
+        "https://github.com/go-gitea/gitea",
+        "https://docker.gitea.com/gitea"
+      ],
+      "icon": "https://gitea.com/assets/img/logo.svg",
+      "latestVersion": "12.1.3",
+      "appVersion": "1.24.3",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "12.1.3",
+          "appVersion": "1.24.3",
+          "created": "2025-12-08T11:02:04.3579953+08:00",
+          "urls": [
+            "gitea/gitea-12.1.3.tgz"
+          ],
+          "description": "Gitea Helm chart for Kubernetes",
+          "home": null,
+          "sources": [
+            "https://gitea.com/gitea/helm-gitea",
+            "https://github.com/go-gitea/gitea",
+            "https://docker.gitea.com/gitea"
+          ],
+          "keywords": [
+            "git",
+            "issue tracker",
+            "code review",
+            "wiki",
+            "gitea",
+            "gogs"
+          ],
+          "icon": "https://gitea.com/assets/img/logo.svg"
+        }
+      ]
+    },
+    {
+      "name": "ingress-nginx",
+      "family": "bitnami",
+      "description": "Ingress controller for Kubernetes using NGINX as a reverse proxy and load balancer",
+      "keywords": [
+        "ingress",
+        "nginx"
+      ],
+      "home": "https://github.com/kubernetes/ingress-nginx",
+      "sources": [
+        "https://github.com/kubernetes/ingress-nginx"
+      ],
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png",
+      "latestVersion": "4.11.3",
+      "appVersion": "1.11.3",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "4.11.3",
+          "appVersion": "1.11.3",
+          "created": "2025-12-08T11:02:04.1177765+08:00",
+          "urls": [
+            "bitnami/ingress-nginx-4.11.3.tgz"
+          ],
+          "description": "Ingress controller for Kubernetes using NGINX as a reverse proxy and load balancer",
+          "home": "https://github.com/kubernetes/ingress-nginx",
+          "sources": [
+            "https://github.com/kubernetes/ingress-nginx"
+          ],
+          "keywords": [
+            "ingress",
+            "nginx"
+          ],
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Nginx_logo.svg/500px-Nginx_logo.svg.png"
+        }
+      ]
+    },
+    {
+      "name": "kafka",
+      "family": "bitnami",
+      "description": "Apache Kafka is a distributed streaming platform designed to build real-time pipelines and can be used as a message broker or as a replacement for a log aggregation solution for big data applications.",
+      "keywords": [
+        "kafka",
+        "streaming",
+        "producer",
+        "consumer"
+      ],
+      "home": "https://bitnami.com",
+      "sources": [
+        "https://github.com/bitnami/charts/tree/main/bitnami/kafka"
+      ],
+      "icon": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/kafka/img/kafka-stack-220x234.png",
+      "latestVersion": "32.2.3",
+      "appVersion": "4.0.0",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "32.2.3",
+          "appVersion": "4.0.0",
+          "created": "2025-12-08T11:02:04.1237824+08:00",
+          "urls": [
+            "bitnami/kafka-32.2.3.tgz"
+          ],
+          "description": "Apache Kafka is a distributed streaming platform designed to build real-time pipelines and can be used as a message broker or as a replacement for a log aggregation solution for big data applications.",
+          "home": "https://bitnami.com",
+          "sources": [
+            "https://github.com/bitnami/charts/tree/main/bitnami/kafka"
+          ],
+          "keywords": [
+            "kafka",
+            "streaming",
+            "producer",
+            "consumer"
+          ],
+          "icon": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/kafka/img/kafka-stack-220x234.png"
+        }
+      ]
+    },
+    {
+      "name": "knative-operator",
+      "family": "knative",
+      "description": "Helm chart for deploying Knative Operator",
+      "keywords": [
+        "knative",
+        "knative-operator"
+      ],
+      "home": null,
+      "sources": [
+        "https://github.com/knative/operator"
+      ],
+      "icon": null,
+      "latestVersion": "1.18.1",
+      "appVersion": null,
+      "versionCount": 2,
+      "versions": [
+        {
+          "version": "1.18.1",
+          "appVersion": null,
+          "created": "2025-12-08T11:02:04.3650008+08:00",
+          "urls": [
+            "knative/knative-operator-v1.18.1.tgz"
+          ],
+          "description": "Helm chart for deploying Knative Operator",
+          "home": null,
+          "sources": [
+            "https://github.com/knative/operator"
+          ],
+          "keywords": [
+            "knative",
+            "knative-operator"
+          ],
+          "icon": null
+        },
+        {
+          "version": "1.15.7",
+          "appVersion": null,
+          "created": "2025-12-08T11:02:04.3640001+08:00",
+          "urls": [
+            "knative/knative-operator-v1.15.7.tgz"
+          ],
+          "description": "Helm chart for deploying Knative Operator",
+          "home": null,
+          "sources": [
+            "https://github.com/knative/operator"
+          ],
+          "keywords": [
+            "knative",
+            "knative-operator"
+          ],
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "kserve",
+      "family": "kserve",
+      "description": "Helm chart for deploying kserve resources",
+      "keywords": [
+        "kserve",
+        "modelmesh"
+      ],
+      "home": null,
+      "sources": [
+        "http://github.com/kserve/kserve"
+      ],
+      "icon": null,
+      "latestVersion": "v0.15.2",
+      "appVersion": null,
+      "versionCount": 2,
+      "versions": [
+        {
+          "version": "v0.15.2",
+          "appVersion": null,
+          "created": "2025-12-08T11:02:04.3700067+08:00",
+          "urls": [
+            "kserve/kserve-v0.15.2.tgz"
+          ],
+          "description": "Helm chart for deploying kserve resources",
+          "home": null,
+          "sources": [
+            "http://github.com/kserve/kserve"
+          ],
+          "keywords": [
+            "kserve",
+            "modelmesh"
+          ],
+          "icon": null
+        },
+        {
+          "version": "v0.15.0",
+          "appVersion": null,
+          "created": "2025-12-08T11:02:04.3690055+08:00",
+          "urls": [
+            "kserve/kserve-v0.15.0.tgz"
+          ],
+          "description": "Helm chart for deploying kserve resources",
+          "home": null,
+          "sources": [
+            "http://github.com/kserve/kserve"
+          ],
+          "keywords": [
+            "kserve",
+            "modelmesh"
+          ],
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "kserve-crd",
+      "family": "kserve",
+      "description": "Helm chart for deploying kserve crds",
+      "keywords": [
+        "kserve",
+        "modelmesh"
+      ],
+      "home": null,
+      "sources": [
+        "http://github.com/kserve/kserve"
+      ],
+      "icon": null,
+      "latestVersion": "v0.15.2",
+      "appVersion": null,
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "v0.15.2",
+          "appVersion": null,
+          "created": "2025-12-08T11:02:04.3670027+08:00",
+          "urls": [
+            "kserve/kserve-crd-v0.15.2.tgz"
+          ],
+          "description": "Helm chart for deploying kserve crds",
+          "home": null,
+          "sources": [
+            "http://github.com/kserve/kserve"
+          ],
+          "keywords": [
+            "kserve",
+            "modelmesh"
+          ],
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "kube-prometheus-stack",
+      "family": "bitnami",
+      "description": "kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.",
+      "keywords": [
+        "operator",
+        "prometheus",
+        "kube-prometheus"
+      ],
+      "home": "https://github.com/prometheus-operator/kube-prometheus",
+      "sources": [
+        "https://github.com/prometheus-community/helm-charts",
+        "https://github.com/prometheus-operator/kube-prometheus"
+      ],
+      "icon": "https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png",
+      "latestVersion": "72.9.1",
+      "appVersion": "v0.82.2",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "72.9.1",
+          "appVersion": "v0.82.2",
+          "created": "2025-12-08T11:02:04.149806+08:00",
+          "urls": [
+            "bitnami/kube-prometheus-stack-72.9.1.tgz"
+          ],
+          "description": "kube-prometheus-stack collects Kubernetes manifests, Grafana dashboards, and Prometheus rules combined with documentation and scripts to provide easy to operate end-to-end Kubernetes cluster monitoring with Prometheus using the Prometheus Operator.",
+          "home": "https://github.com/prometheus-operator/kube-prometheus",
+          "sources": [
+            "https://github.com/prometheus-community/helm-charts",
+            "https://github.com/prometheus-operator/kube-prometheus"
+          ],
+          "keywords": [
+            "operator",
+            "prometheus",
+            "kube-prometheus"
+          ],
+          "icon": "https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png"
+        }
+      ]
+    },
+    {
+      "name": "mariadb",
+      "family": "bitnami",
+      "description": "MariaDB is an open source, community-developed SQL database server that is widely in use around the world due to its enterprise features, flexibility, and collaboration with leading tech firms.",
+      "keywords": [
+        "mariadb",
+        "mysql",
+        "database",
+        "sql",
+        "prometheus"
+      ],
+      "home": "https://bitnami.com",
+      "sources": [
+        "https://github.com/bitnami/charts/tree/main/bitnami/mariadb"
+      ],
+      "icon": "https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png",
+      "latestVersion": "19.0.6",
+      "appVersion": "11.4.3",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "19.0.6",
+          "appVersion": "11.4.3",
+          "created": "2025-12-08T11:02:04.1528089+08:00",
+          "urls": [
+            "bitnami/mariadb-19.0.6.tgz"
+          ],
+          "description": "MariaDB is an open source, community-developed SQL database server that is widely in use around the world due to its enterprise features, flexibility, and collaboration with leading tech firms.",
+          "home": "https://bitnami.com",
+          "sources": [
+            "https://github.com/bitnami/charts/tree/main/bitnami/mariadb"
+          ],
+          "keywords": [
+            "mariadb",
+            "mysql",
+            "database",
+            "sql",
+            "prometheus"
+          ],
+          "icon": "https://bitnami.com/assets/stacks/mariadb/img/mariadb-stack-220x234.png"
+        }
+      ]
+    },
+    {
+      "name": "minio",
+      "family": "bitnami",
+      "description": "MinIO(R) is an object storage server, compatible with Amazon S3 cloud storage service, mainly used for storing unstructured data (such as photos, videos, log files, etc.).",
+      "keywords": [
+        "minio",
+        "storage",
+        "object-storage",
+        "s3",
+        "cluster"
+      ],
+      "home": "https://bitnami.com",
+      "sources": [
+        "https://github.com/bitnami/charts/tree/main/bitnami/minio"
+      ],
+      "icon": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/minio/img/minio-stack-220x234.png",
+      "latestVersion": "16.0.10",
+      "appVersion": "2025.4.22",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "16.0.10",
+          "appVersion": "2025.4.22",
+          "created": "2025-12-08T11:02:04.1558108+08:00",
+          "urls": [
+            "bitnami/minio-16.0.10.tgz"
+          ],
+          "description": "MinIO(R) is an object storage server, compatible with Amazon S3 cloud storage service, mainly used for storing unstructured data (such as photos, videos, log files, etc.).",
+          "home": "https://bitnami.com",
+          "sources": [
+            "https://github.com/bitnami/charts/tree/main/bitnami/minio"
+          ],
+          "keywords": [
+            "minio",
+            "storage",
+            "object-storage",
+            "s3",
+            "cluster"
+          ],
+          "icon": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/minio/img/minio-stack-220x234.png"
+        }
+      ]
+    },
+    {
+      "name": "n8n",
+      "family": "n8n",
+      "description": "A Helm chart for fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+      "keywords": [
+        "n8n",
+        "Workflow Automation",
+        "Workflow",
+        "Automation",
+        "iPaaS",
+        "integration-framework",
+        "low-code-plattform",
+        "low-code"
+      ],
+      "home": "https://n8n.io",
+      "sources": [
+        "https://github.com/community-charts/helm-charts",
+        "https://github.com/n8n-io/n8n"
+      ],
+      "icon": "https://avatars1.githubusercontent.com/u/45487711?s=200&v=4",
+      "latestVersion": "1.16.8",
+      "appVersion": "1.122.5",
+      "versionCount": 3,
+      "versions": [
+        {
+          "version": "1.16.8",
+          "appVersion": "1.122.5",
+          "created": "2025-12-08T11:02:04.426057+08:00",
+          "urls": [
+            "n8n/n8n-1.16.8.tgz"
+          ],
+          "description": "A Helm chart for fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+          "home": "https://n8n.io",
+          "sources": [
+            "https://github.com/community-charts/helm-charts",
+            "https://github.com/n8n-io/n8n"
+          ],
+          "keywords": [
+            "n8n",
+            "Workflow Automation",
+            "Workflow",
+            "Automation",
+            "iPaaS",
+            "integration-framework",
+            "low-code-plattform",
+            "low-code"
+          ],
+          "icon": "https://avatars1.githubusercontent.com/u/45487711?s=200&v=4"
+        },
+        {
+          "version": "1.16.1",
+          "appVersion": "1.118.2",
+          "created": "2025-12-08T11:02:04.4010345+08:00",
+          "urls": [
+            "n8n/n8n-1.16.1.tgz"
+          ],
+          "description": "A Helm chart for fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+          "home": "https://n8n.io",
+          "sources": [
+            "https://github.com/community-charts/helm-charts",
+            "https://github.com/n8n-io/n8n"
+          ],
+          "keywords": [
+            "n8n",
+            "Workflow Automation",
+            "Workflow",
+            "Automation",
+            "iPaaS",
+            "integration-framework",
+            "low-code-plattform",
+            "low-code"
+          ],
+          "icon": "https://avatars1.githubusercontent.com/u/45487711?s=200&v=4"
+        },
+        {
+          "version": "1.16.0",
+          "appVersion": "1.118.2",
+          "created": "2025-12-08T11:02:04.3850193+08:00",
+          "urls": [
+            "n8n/n8n-1.16.0.tgz"
+          ],
+          "description": "A Helm chart for fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host or cloud, 400+ integrations.",
+          "home": "https://n8n.io",
+          "sources": [
+            "https://github.com/community-charts/helm-charts",
+            "https://github.com/n8n-io/n8n"
+          ],
+          "keywords": [
+            "n8n",
+            "Workflow Automation",
+            "Workflow",
+            "Automation",
+            "iPaaS",
+            "integration-framework",
+            "low-code-plattform",
+            "low-code"
+          ],
+          "icon": "https://avatars1.githubusercontent.com/u/45487711?s=200&v=4"
+        }
+      ]
+    },
+    {
+      "name": "postgresql",
+      "family": "bitnami",
+      "description": "PostgreSQL (Postgres) is an open source object-relational database known for reliability and data integrity. ACID-compliant, it supports foreign keys, joins, views, triggers and stored procedures.",
+      "keywords": [
+        "postgresql",
+        "postgres",
+        "database",
+        "sql",
+        "replication",
+        "cluster"
+      ],
+      "home": "https://bitnami.com",
+      "sources": [
+        "https://github.com/bitnami/charts/tree/main/bitnami/postgresql"
+      ],
+      "icon": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/postgresql/img/postgresql-stack-220x234.png",
+      "latestVersion": "18.1.8",
+      "appVersion": "18.0.0",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "18.1.8",
+          "appVersion": "18.0.0",
+          "created": "2025-12-08T11:02:04.1598154+08:00",
+          "urls": [
+            "bitnami/postgresql-18.1.8.tgz"
+          ],
+          "description": "PostgreSQL (Postgres) is an open source object-relational database known for reliability and data integrity. ACID-compliant, it supports foreign keys, joins, views, triggers and stored procedures.",
+          "home": "https://bitnami.com",
+          "sources": [
+            "https://github.com/bitnami/charts/tree/main/bitnami/postgresql"
+          ],
+          "keywords": [
+            "postgresql",
+            "postgres",
+            "database",
+            "sql",
+            "replication",
+            "cluster"
+          ],
+          "icon": "https://dyltqmyl993wv.cloudfront.net/assets/stacks/postgresql/img/postgresql-stack-220x234.png"
+        }
+      ]
+    },
+    {
+      "name": "ska-src-dm-da-service-gatekeeper",
+      "family": "cnsrc",
+      "description": "A chart for the deployment of the SRCNet Service Gatekeeper (a modified version of ingress-nginx).",
+      "keywords": [],
+      "home": "https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper",
+      "sources": [
+        "https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper"
+      ],
+      "icon": null,
+      "latestVersion": "0.2.4",
+      "appVersion": "0.2.4",
+      "versionCount": 2,
+      "versions": [
+        {
+          "version": "0.2.4",
+          "appVersion": "0.2.4",
+          "created": "2025-12-08T11:02:04.1688229+08:00",
+          "urls": [
+            "cnsrc/ska-src-dm-da-service-gatekeeper-0.2.4.tgz"
+          ],
+          "description": "A chart for the deployment of the SRCNet Service Gatekeeper (a modified version of ingress-nginx).",
+          "home": "https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper",
+          "sources": [
+            "https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper"
+          ],
+          "keywords": [],
+          "icon": null
+        },
+        {
+          "version": "0.2.0",
+          "appVersion": "0.1.8",
+          "created": "2025-12-08T11:02:04.164819+08:00",
+          "urls": [
+            "cnsrc/ska-src-dm-da-service-gatekeeper-0.2.0.tgz"
+          ],
+          "description": "A chart for the deployment of the SRCNet Service Gatekeeper (a modified version of ingress-nginx).",
+          "home": "https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper",
+          "sources": [
+            "https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper"
+          ],
+          "keywords": [],
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "slurm",
+      "family": "slurm",
+      "description": "A Helm chart for Slurm On Kubernetes",
+      "keywords": [
+        "slurm",
+        "hpc",
+        "k8s"
+      ],
+      "home": "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart",
+      "sources": [
+        "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart"
+      ],
+      "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png",
+      "latestVersion": "1.0.10",
+      "appVersion": "25.05.0",
+      "versionCount": 7,
+      "versions": [
+        {
+          "version": "1.0.10",
+          "appVersion": "25.05.0",
+          "created": "2025-12-08T11:02:04.4310607+08:00",
+          "urls": [
+            "slurm/slurm-1.0.10.tgz"
+          ],
+          "description": "A Helm chart for Slurm On Kubernetes",
+          "home": "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart",
+          "sources": [
+            "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart"
+          ],
+          "keywords": [
+            "slurm",
+            "hpc",
+            "k8s"
+          ],
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png"
+        },
+        {
+          "version": "1.0.9",
+          "appVersion": "25.05.0",
+          "created": "2025-12-08T11:02:04.4630907+08:00",
+          "urls": [
+            "slurm/slurm-1.0.9.tgz"
+          ],
+          "description": "A Helm chart for Slurm On Kubernetes",
+          "home": "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart",
+          "sources": [
+            "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart"
+          ],
+          "keywords": [
+            "slurm",
+            "hpc",
+            "k8s"
+          ],
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png"
+        },
+        {
+          "version": "1.0.8",
+          "appVersion": "25.05.0",
+          "created": "2025-12-08T11:02:04.4570854+08:00",
+          "urls": [
+            "slurm/slurm-1.0.8.tgz"
+          ],
+          "description": "A Helm chart for Slurm On Kubernetes",
+          "home": "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart",
+          "sources": [
+            "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart"
+          ],
+          "keywords": [
+            "slurm",
+            "hpc",
+            "k8s"
+          ],
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png"
+        },
+        {
+          "version": "1.0.7",
+          "appVersion": "25.05.0",
+          "created": "2025-12-08T11:02:04.4520803+08:00",
+          "urls": [
+            "slurm/slurm-1.0.7.tgz"
+          ],
+          "description": "A Helm chart for Slurm On Kubernetes",
+          "home": "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart",
+          "sources": [
+            "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart"
+          ],
+          "keywords": [
+            "slurm",
+            "hpc",
+            "k8s"
+          ],
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png"
+        },
+        {
+          "version": "1.0.6",
+          "appVersion": "24.05.3",
+          "created": "2025-12-08T11:02:04.447076+08:00",
+          "urls": [
+            "slurm/slurm-1.0.6.tgz"
+          ],
+          "description": "A Helm chart for Slurm Cluster",
+          "home": "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart",
+          "sources": [
+            "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart"
+          ],
+          "keywords": [
+            "slurm",
+            "hpc",
+            "k8s"
+          ],
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png"
+        },
+        {
+          "version": "1.0.5",
+          "appVersion": "24.05.3",
+          "created": "2025-12-08T11:02:04.4420712+08:00",
+          "urls": [
+            "slurm/slurm-1.0.5.tgz"
+          ],
+          "description": "A Helm chart for Slurm Cluster",
+          "home": "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart",
+          "sources": [
+            "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart"
+          ],
+          "keywords": [
+            "slurm",
+            "hpc",
+            "k8s"
+          ],
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png"
+        },
+        {
+          "version": "1.0.4",
+          "appVersion": "24.05.3",
+          "created": "2025-12-08T11:02:04.4370665+08:00",
+          "urls": [
+            "slurm/slurm-1.0.4.tgz"
+          ],
+          "description": "A Helm chart for Slurm Cluster",
+          "home": "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart",
+          "sources": [
+            "https://github.com/AaronYang0628/slurm-on-k8s/tree/main/chart"
+          ],
+          "keywords": [
+            "slurm",
+            "hpc",
+            "k8s"
+          ],
+          "icon": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Slurm_logo.svg/262px-Slurm_logo.svg.png"
+        }
+      ]
+    },
+    {
+      "name": "src-net-preparedata",
+      "family": "cnsrc",
+      "description": "A Helm chart for SKAO preparedata application",
+      "keywords": [],
+      "home": null,
+      "sources": [],
+      "icon": null,
+      "latestVersion": "0.1.0",
+      "appVersion": "1.16.0",
+      "versionCount": 1,
+      "versions": [
+        {
+          "version": "0.1.0",
+          "appVersion": "1.16.0",
+          "created": "2025-12-08T11:02:04.169824+08:00",
+          "urls": [
+            "cnsrc/src-net-preparedata-0.1.0.tgz"
+          ],
+          "description": "A Helm chart for SKAO preparedata application",
+          "home": null,
+          "sources": [],
+          "keywords": [],
+          "icon": null
+        }
+      ]
+    },
+    {
+      "name": "sub2api",
+      "family": "sub2api",
+      "description": "Sub2API AI API gateway platform",
+      "keywords": [
+        "sub2api",
+        "ai",
+        "gateway"
+      ],
+      "home": "https://github.com/ben-wangz/k8s-at-home",
+      "sources": [
+        "https://github.com/ben-wangz/k8s-at-home/tree/main/application/sub2api"
+      ],
+      "icon": null,
+      "latestVersion": "0.1.14",
+      "appVersion": "0.2.4",
+      "versionCount": 4,
+      "versions": [
+        {
+          "version": "0.1.14",
+          "appVersion": "0.2.4",
+          "created": "2026-09-10T05:54:46.684781835Z",
+          "urls": [
+            "sub2api/sub2api-0.1.14.tgz"
+          ],
+          "description": "Sub2API AI API gateway platform",
+          "home": "https://github.com/ben-wangz/k8s-at-home",
+          "sources": [
+            "https://github.com/ben-wangz/k8s-at-home/tree/main/application/sub2api"
+          ],
+          "keywords": [
+            "sub2api",
+            "ai",
+            "gateway"
+          ],
+          "icon": null
+        },
+        {
+          "version": "0.1.13",
+          "appVersion": "0.2.3",
+          "created": "2026-09-08T03:00:08.150789347Z",
+          "urls": [
+            "sub2api/sub2api-0.1.13.tgz"
+          ],
+          "description": "Sub2API AI API gateway platform",
+          "home": "https://github.com/ben-wangz/k8s-at-home",
+          "sources": [
+            "https://github.com/ben-wangz/k8s-at-home/tree/main/application/sub2api"
+          ],
+          "keywords": [
+            "sub2api",
+            "ai",
+            "gateway"
+          ],
+          "icon": null
+        },
+        {
+          "version": "0.1.12",
+          "appVersion": "0.2.1",
+          "created": "2026-09-05T12:18:09.403577777Z",
+          "urls": [
+            "sub2api/sub2api-0.1.12.tgz"
+          ],
+          "description": "Sub2API AI API gateway platform",
+          "home": "https://github.com/ben-wangz/k8s-at-home",
+          "sources": [
+            "https://github.com/ben-wangz/k8s-at-home/tree/main/application/sub2api"
+          ],
+          "keywords": [
+            "sub2api",
+            "ai",
+            "gateway"
+          ],
+          "icon": null
+        },
+        {
+          "version": "0.1.11",
+          "appVersion": "0.2.0",
+          "created": "2026-09-04T22:36:24.07282439+08:00",
+          "urls": [
+            "sub2api/sub2api-0.1.11.tgz"
+          ],
+          "description": "Sub2API AI API gateway platform",
+          "home": "https://github.com/ben-wangz/k8s-at-home",
+          "sources": [
+            "https://github.com/ben-wangz/k8s-at-home/tree/main/application/sub2api"
+          ],
+          "keywords": [
+            "sub2api",
+            "ai",
+            "gateway"
+          ],
+          "icon": null
+        }
+      ]
+    }
+  ]
+}
