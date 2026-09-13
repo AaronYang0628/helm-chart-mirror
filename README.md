@@ -33,6 +33,13 @@ The Pages homepage loads `charts/index.yaml` in the browser (with `assets/catalo
 python3 scripts/generate-catalog-json.py
 ```
 
+
+## Automation
+
+- **Weekly mirror sync** (Tue 03:17 UTC, or *workflow_dispatch*): pulls charts listed in `charts.yaml`, rebuilds `charts/index.yaml` + `assets/catalog.json`, and opens a PR on `chore/mirror-sync`. See [scripts/sync-mirror.md](./scripts/sync-mirror.md).
+- **Mirror CI**: on PRs/pushes that touch charts or catalog files, `scripts/check-mirror.sh` verifies tgz ↔ index consistency, catalog drift, and spot-checks a few packages with `helm show chart`.
+- Sub2API has its own update/publish/CI workflows (unchanged).
+
 ## License
 
 See [LICENSE](./LICENSE).

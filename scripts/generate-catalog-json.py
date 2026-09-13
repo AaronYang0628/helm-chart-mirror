@@ -14,11 +14,12 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parents[1]
 INDEX = ROOT / "charts" / "index.yaml"
-OUT = ROOT / "assets" / "catalog.json"
+DEFAULT_OUT = ROOT / "assets" / "catalog.json"
 REPO_URL = "https://aaronyang0628.github.io/helm-chart-mirror/charts"
 
 
-def main() -> None:
+def main(out_path: Path | None = None) -> None:
+    OUT = out_path or DEFAULT_OUT
     with INDEX.open(encoding="utf-8") as f:
         data = yaml.safe_load(f)
     entries = data.get("entries") or {}
@@ -72,8 +73,13 @@ def main() -> None:
     # verify
     with OUT.open(encoding="utf-8") as f:
         parsed = json.load(f)
-    print(f"Wrote {OUT.relative_to(ROOT)} ({parsed['chartCount']} charts)")
+    try:
+        display = OUT.relative_to(ROOT)
+    except ValueError:
+        display = OUT
+    print(f"Wrote {display} ({parsed['chartCount']} charts)")
 
 
 if __name__ == "__main__":
-    main()
+    out = Path(sys.argv[1]) if len(sys.argv) > 1 else None
+    main(out)

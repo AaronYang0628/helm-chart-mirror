@@ -1,0 +1,49 @@
+name: Mirror consistency CI
+
+on:
+  pull_request:
+    paths:
+      - 'charts/**'
+      - 'charts.yaml'
+      - 'assets/catalog.json'
+      - 'scripts/**'
+      - '.github/workflows/mirror-ci.yml'
+      - '.github/workflows/update-mirror.yaml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'charts/**'
+      - 'charts.yaml'
+      - 'assets/catalog.json'
+      - 'scripts/**'
+      - '.github/workflows/mirror-ci.yml'
+      - '.github/workflows/update-mirror.yaml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check mirror consistency
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install PyYAML
+        run: python3 -m pip install pyyaml
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.17.3
+
+      - name: Run mirror consistency checks
+        run: bash scripts/check-mirror.sh

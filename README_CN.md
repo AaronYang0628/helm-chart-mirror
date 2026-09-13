@@ -33,6 +33,13 @@ Pages 首页在浏览器中拉取 `charts/index.yaml`（失败时回退到 `asse
 python3 scripts/generate-catalog-json.py
 ```
 
+
+## 自动化
+
+- **每周镜像同步**（UTC 周二 03:17，或手动 *workflow_dispatch*）：按 `charts.yaml` 拉取 Chart，重建 `charts/index.yaml` 与 `assets/catalog.json`，并在 `chore/mirror-sync` 开/更新 PR。说明见 [scripts/sync-mirror.md](./scripts/sync-mirror.md)。
+- **镜像一致性 CI**：涉及 charts / catalog 的 PR 与 main 推送会运行 `scripts/check-mirror.sh`（tgz ↔ index、catalog 漂移、少量 `helm show chart` 抽检）。
+- Sub2API 仍使用独立的更新 / 发布 / CI 工作流。
+
 ## 许可
 
 见 [LICENSE](./LICENSE)。

@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+### Added
+- Scheduled general mirror sync workflow (weekly Tue 03:17 UTC + `workflow_dispatch`) that opens/updates PR `chore/mirror-sync`
+- Mirror consistency CI (`mirror-ci.yml` + `scripts/check-mirror.sh`): tgz↔index, catalog drift, helm spot-checks
+- Docs: Automation section in READMEs, `scripts/sync-mirror.md`
+
 ## v1.0.0 — 2026-09-13
 
 ### Added

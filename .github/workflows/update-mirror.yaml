@@ -1,34 +1,89 @@
-name: update-mirror
+name: Sync mirrored Helm charts
+
 on:
-  workflow_dispatch: 
+  schedule:
+    # Weekly Tuesday 03:17 UTC
+    - cron: '17 3 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: mirror-sync
+  cancel-in-progress: false
+
 jobs:
-  publish-github-pages:
-    permissions:
-      pages: write
-      id-token: write
+  sync:
+    name: Mirror sync and open PR
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: checkout-repository
+      - name: Check out repository
         uses: actions/checkout@v4
-        with:
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          ref: ${{ github.event.pull_request.head.ref }}
-      - name: update-mirror
+
+      - name: Run helm chart mirror
         uses: addnab/docker-run-action@v3
         with:
-          registry: gcr.io
           image: ghcr.io/ben-wangz/blog-helm-mirror:main
-          options: -v ${{ github.workspace }}:/code -e CHART_YAML_FILE=/code/charts.yaml -e DESTINATION=/code/charts
+          options: >-
+            -v ${{ github.workspace }}:/code
+            -e CHART_YAML_FILE=/code/charts.yaml
+            -e DESTINATION=/code/charts
           shell: bash
           run: /app/mirror.sh
-      - name: upload github pages artifact
-        uses: actions/upload-pages-artifact@v3
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
         with:
-          path: ${{ github.workspace }}
-          retention-days: 1
-      - name: deploy to gitHub pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          version: v3.17.3
+
+      # Match existing charts/index.yaml style (relative urls like family/chart-ver.tgz)
+      - name: Rebuild charts/index.yaml
+        run: helm repo index charts
+
+      - name: Refresh assets/catalog.json
+        run: |
+          python3 -m pip install --user pyyaml
+          python3 scripts/generate-catalog-json.py
+
+      - name: Summarize changes
+        id: summary
+        run: |
+          set -euo pipefail
+          {
+            echo "## Mirror sync"
+            echo
+            echo "Automated sync from \`charts.yaml\` via \`ghcr.io/ben-wangz/blog-helm-mirror:main\`."
+            echo
+            echo '### git status'
+            echo '```'
+            git status --short || true
+            echo '```'
+            echo
+            echo '### Changed / new chart packages'
+            echo '```'
+            git status --short -- 'charts/**/*.tgz' || true
+            echo '```'
+          } > /tmp/pr-body.md
+          if git diff --quiet && git diff --cached --quiet && \
+             [ -z "$(git ls-files --others --exclude-standard)" ]; then
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            echo "No changes after mirror sync."
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            echo "Changes detected."
+            cat /tmp/pr-body.md
+          fi
+
+      - name: Open or update sync pull request
+        if: steps.summary.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: chore/mirror-sync
+          delete-branch: true
+          commit-message: 'chore: sync mirrored helm charts'
+          title: 'chore: sync mirrored helm charts'
+          body-path: /tmp/pr-body.md

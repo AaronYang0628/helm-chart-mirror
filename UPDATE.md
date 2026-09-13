@@ -17,3 +17,14 @@ bash scripts/sub2api.sh verify
 After the pull request is merged, `Publish Sub2API chart` publishes the package
 to `oci://ghcr.io/aaronyang0628/helm-chart-mirror/sub2api`. The GHCR package must
 remain public so anonymous pulls can be verified.
+
+### General mirror sync
+
+Scheduled weekly (Tue 03:17 UTC) and via `workflow_dispatch`. Details:
+[scripts/sync-mirror.md](./scripts/sync-mirror.md).
+
+Local check:
+
+```shell
+bash scripts/check-mirror.sh
+```
