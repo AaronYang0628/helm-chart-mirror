@@ -39,7 +39,7 @@ python3 scripts/generate-catalog-json.py
 - **Weekly mirror sync** (Tue 03:17 UTC, or *workflow_dispatch*): pulls charts listed in `charts.yaml`, rebuilds `charts/index.yaml` + `assets/catalog.json`, and opens a PR on `chore/mirror-sync`. See [scripts/sync-mirror.md](./scripts/sync-mirror.md).
 - **Mirror CI**: on PRs/pushes that touch charts or catalog files, `scripts/check-mirror.sh` verifies tgz ↔ index consistency, catalog drift, and spot-checks a few packages with `helm show chart`.
 - Sub2API has its own update/publish/CI workflows (unchanged).
-  - **sub2api** chart version: `0.1.14` (application `0.2.4`)
+  - **sub2api** chart version: `0.1.15` (application `0.2.5`)
 
 ## License
 
