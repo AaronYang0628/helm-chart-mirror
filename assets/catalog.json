@@ -1287,10 +1287,29 @@
         "https://github.com/ben-wangz/k8s-at-home/tree/main/application/sub2api"
       ],
       "icon": null,
-      "latestVersion": "0.1.28",
-      "appVersion": "0.2.23",
-      "versionCount": 18,
+      "latestVersion": "0.1.29",
+      "appVersion": "0.2.24",
+      "versionCount": 19,
       "versions": [
+        {
+          "version": "0.1.29",
+          "appVersion": "0.2.24",
+          "created": "2026-11-20T10:07:47.307764391Z",
+          "urls": [
+            "sub2api/sub2api-0.1.29.tgz"
+          ],
+          "description": "Sub2API AI API gateway platform",
+          "home": "https://github.com/ben-wangz/k8s-at-home",
+          "sources": [
+            "https://github.com/ben-wangz/k8s-at-home/tree/main/application/sub2api"
+          ],
+          "keywords": [
+            "sub2api",
+            "ai",
+            "gateway"
+          ],
+          "icon": null
+        },
         {
           "version": "0.1.28",
           "appVersion": "0.2.23",
